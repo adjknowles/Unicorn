@@ -1,0 +1,52 @@
+body{
+  header {
+    nav {
+      ul {
+        li {
+          a {
+            h1#site-heading {
+
+            }
+          }
+        }
+      }
+    }
+  }
+  main {
+    div#google-map {
+      max-width: 960px;
+      max-height: 320px;
+    }
+    section {
+      h1 {
+
+      }
+      form {
+
+      }
+    }
+    section#register {
+      form#form-register {
+
+      }
+    }
+
+    section#login {
+      form#form-login {
+
+      }
+    }
+
+    section#new-startup {
+      form#form-new-startup {
+
+      }
+    }
+
+    section#new-workspace {
+      form#form-new-workspace {
+
+      }
+    }
+  }
+}
