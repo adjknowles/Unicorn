@@ -20,7 +20,7 @@ $(document).ready(function(){
 
     canvas = document.getElementById('googleMap');
     map = new google.maps.Map(canvas, mapOptions);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
   };
 
   mapApp.searchBox = function(){
