@@ -1,5 +1,18 @@
-body main section#google-map.row div#map-container div#googleMap {
-  max-width: 100%;
-  max-height: 480px; }
+body main section div.row {
+  width: 960px;
+  height: 500px; }
+  body main section div.row div#map-container {
+    width: 100%;
+    height: 100%; }
+    body main section div.row div#map-container div#googleMap {
+      width: 100%;
+      height: 100%;
+      position: relative; }
+  body main section div.row div#directions-container {
+    width: 100%;
+    height: 100%; }
+    body main section div.row div#directions-container div#directions-panel {
+      width: 100%;
+      height: 100%; }
 
 /*# sourceMappingURL=style.css.map */
