@@ -1,8 +1,9 @@
 var mongoose = require("mongoose");
 
 var startupSchema = new mongoose.Schema({ 
+    name:                   { type: String, required: true },
     headquarters:           { type: String, required: true },
-    founders:               { type: String, required: true },
+    founders:               { type: String },
     sector:                 { type: String, required: true },
     email:                  { type: String, required: true },
     phone:                  { type: String },
