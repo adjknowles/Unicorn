@@ -72,10 +72,27 @@
 
     <section id="register" class="container">
       <h1>Register</h1>
+      <div class="row">
 
-      <form id="form-register">
-        
-      </form>
+        <form id="form-register" class="col s12">
+          <label for="register-email"></label>
+          <input type="text" class="validate" name="email" id="register-email" placeholder="Email" >
+
+          <label for="register-username"></label>
+          <input type="text" class="validate" name="username" id="register-username" placeholder="Username" >
+
+          <label for="register-first-name"></label>
+          <input type="text" class="validate" name="firstName" id="register-first-name" placeholder="First name" >
+          
+          <label for="register-last-nameame"></label>
+          <input type="text" class="validate" name="lastName" id="register-last-name" placeholder="Last name" >
+          
+          <label for="register-password"></label>
+          <input type="password" class="validate" name="password" id="register-password" placeholder="Password" >
+
+          <button type="submit" class="btn waves-effect waves-light">Register</button>
+        </form>
+      </div>
     </section>
     
     <section id="login" class="container">
@@ -100,6 +117,12 @@
       <form id="form-new-workspace">
         
       </form>
+    </section>
+
+    <section id="results" class="container">
+      <h1>Startups and Workspaces</h1>
+      <div id="results">
+      </div>
     </section>
   </main>
 </body>

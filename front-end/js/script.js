@@ -1,4 +1,99 @@
 $(document).ready(function(){
+
+  $("form").on("submit", submitForm);
+  displayMap();
+  
+});
+
+function submitForm(){
+  event.preventDefault();
+
+  var method = $(this).attr("method");
+  var url    = "http://localhost:3000/api" + $(this).attr("action");
+  var data   = $(this).serialize();
+
+  return ajaxRequest(method, url, data, authenticationSuccessful);
+}
+
+function ajaxRequest(method, url, data, callback) {
+  return $.ajax({
+    method: method,
+    url: url,
+    data: data,
+    beforeSend: setRequestHeader,
+  }).done(function(data){
+    if (callback) return callback(data);
+  }).fail(function(data) {
+    displayErrors(data.responseJSON.message);
+  });
+}
+
+function setRequestHeader(xhr, settings) {
+  var token = getToken();
+  if (token) return xhr.setRequestHeader('Authorization','Bearer ' + token);
+}
+
+function getToken() {
+  return localStorage.getItem("token");
+}
+
+function authenticationSuccessful(data) {
+  if (data.token) setToken(data.token);
+  return checkLoginState();
+}
+
+function checkLoginState(){
+  if (getToken()) {
+    return loggedInState();
+  } else {
+    return loggedOutState();
+  }
+}
+
+function loggedInState(){
+  $("section, .logged-out").hide();
+  $("#users, .logged-in").show();
+  return getStartupsAndWorkspaces();
+}
+
+function loggedOutState(){
+  $("section, .logged-in").hide();
+  $("#register, .logged-out").show();
+  return hideStartupsAndWorkspaces();
+}
+
+function getStartupsAndWorkspaces(){
+  return ajaxRequest("get", "http://localhost:3000/api/users", null, displayStartupsAndWorkspaces)
+}
+
+function displayStartupsAndWorkspaces(data){
+  hideErrors();
+  hideStartupsAndWorkspaces();
+  
+  // return $.each(data.users, function(index, user) {
+  //   $(".users").prepend('<div class="media">' +
+  //                         '<div class="media-left">' +
+  //                           '<a href="#">' +
+  //                             '<img class="media-object" src="' + user.local.image +'">' +
+  //                           '</a>' +
+  //                         '</div>' +
+  //                         '<div class="media-body">' +
+  //                           '<h4 class="media-heading">@' + user.local.username + '</h4>' +
+  //                           '<p>' + user.local.fullname + '</p>'+
+  //                         '</div>' +
+  //                       '</div>');
+  // });
+}
+
+function hideStartupsAndWorkspaces(){
+  return $("#results").empty();
+}
+
+function displayErrors(data){
+  return $(".alert").text(data).removeClass("hide").addClass("show");
+}
+
+function displayMap(){
   //Initialize map variables
   var mapOptions, canvas, map;
   var markers = [];
@@ -131,4 +226,4 @@ $(document).ready(function(){
   })
 
   mapApp.initializeMap();
-});
+}
