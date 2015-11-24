@@ -33,6 +33,10 @@ function setRequestHeader(xhr, settings) {
   if (token) return xhr.setRequestHeader('Authorization','Bearer ' + token);
 }
 
+function setToken(token) {
+  return localStorage.setItem("token", token);
+}
+
 function getToken() {
   return localStorage.getItem("token");
 }
