@@ -8572,9 +8572,19 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .btn, .btn-large {
   background-color: #13B9DF; }
 
-.main-header,
-.footer {
+.btn:hover, .btn-large:hover {
   background-color: #DC1378; }
+
+.main-header {
+  background-color: #DC1378; }
+
+#map-container {
+  background-size: cover !important;
+  background-position: center;
+  text-align: center; }
+
+footer {
+  background-color: #DC1378 !important; }
 
 body {
   font-family: 'Lato', sans-serif;
