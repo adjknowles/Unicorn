@@ -32,11 +32,8 @@
     </nav>
   </header>
   <main>
-
     <section id="google-places-search-container" class="container">
       <div class="row">
-        <input type="text" id="searchbox" class="form-control" placeholder="Search">
-
         <div class="col s6">
           <h3>Directions</h3>
           <form class="navbar-left" role="search" id="directions_form" class="row">
@@ -70,7 +67,9 @@
     <section id="google-map-container" class="container">
       <div class="row">
         <div id="map-container" class="col s8">
-          <div id="googleMap"></div>
+          <div id="googleMap">
+          </div>
+          <input type="text" id="searchbox" class="form-control" placeholder="Search">
         </div>
         <div id="directions-container" class="col s4">
           <div id="directions-panel"></div>
