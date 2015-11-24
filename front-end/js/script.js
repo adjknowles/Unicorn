@@ -155,6 +155,7 @@ function displayMap(){
       bounds.extend(place.geometry.location);
     }
     map.fitBounds(bounds); 
+    
   };
 
   mapApp.directions = function(){
