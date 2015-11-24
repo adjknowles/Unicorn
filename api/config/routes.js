@@ -2,19 +2,29 @@ var express  = require('express');
 var router   = express.Router();
 var passport = require("passport");
 
-var usersController = require('../controllers/usersController');
 var authenticationsController = require('../controllers/authenticationsController');
+var startupsController = require('../controllers/startupsController');
+var workspacesController = require('../controllers/workspacesController');
 
 router.post('/login', authenticationsController.login);
 router.post('/register', authenticationsController.register);
 
-router.route('/users')
-  .get(usersController.usersIndex)
+router.route('/startups')
+  .get(startupsController.startupsIndex)
+  
+router.route('/startups/:id')
+  .get(startupsController.startupsShow)
+  .put(startupsController.startupsUpdate)
+  .patch(startupsController.startupsUpdate)
+  .delete(startupsController.startupsDelete)
 
-router.route('/users/:id')
-  .get(usersController.usersShow)
-  .put(usersController.usersUpdate)
-  .patch(usersController.usersUpdate)
-  .delete(usersController.usersDelete)
+router.route('/workspaces')
+  .get(workspacesController.workspacesIndex)
+
+router.route('/workspaces/:id')
+  .get(workspacesController.workspacesShow)
+  .put(workspacesController.workspacesUpdate)
+  .patch(workspacesController.workspacesUpdate)
+  .delete(workspacesController.workspacesDelete)
 
 module.exports = router
