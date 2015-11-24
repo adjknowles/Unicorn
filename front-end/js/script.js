@@ -43,7 +43,9 @@ function getToken() {
 
 function authenticationSuccessful(data) {
   if (data.token) setToken(data.token);
-  return checkLoginState();
+  // Commented out, so that logged in state isn't checked
+  // since we don't have the controllers for the startups and workspaces
+  // return checkLoginState();
 }
 
 function checkLoginState(){
@@ -56,23 +58,27 @@ function checkLoginState(){
 
 function loggedInState(){
   $("section, .logged-out").hide();
-  $("#users, .logged-in").show();
-  return getStartupsAndWorkspaces();
+  $("#results, .logged-in").show();
+  return [getStartups(), getWorkspaces()];
 }
 
 function loggedOutState(){
   $("section, .logged-in").hide();
   $("#register, .logged-out").show();
-  return hideStartupsAndWorkspaces();
+  return hideResults();
 }
 
-function getStartupsAndWorkspaces(){
-  return ajaxRequest("get", "http://localhost:3000/api/users", null, displayStartupsAndWorkspaces)
+function getStartups(){
+  return ajaxRequest("get", "http://localhost:3000/api/startups", null, displayResults);
 }
 
-function displayStartupsAndWorkspaces(data){
+function getWorkspaces(){
+  return ajaxRequest("get", "http://localhost:3000/api/workspaces", null, displayResults);
+}
+
+function displayResults(data){
   hideErrors();
-  hideStartupsAndWorkspaces();
+  hideResults();
   displayStartups();
   displayWorkspaces();
 }
@@ -91,7 +97,7 @@ function displayWorkspaces(data){
   // });
 }
 
-function hideStartupsAndWorkspaces(){
+function hideResults(){
   return $("#results").empty();
 }
 
