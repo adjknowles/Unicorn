@@ -8569,25 +8569,5 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 @media (min-height: 40.125em) {
   .picker--time .picker__box {
     margin-bottom: 5em; } }
-.btn, .btn-large {
-  background-color: #13B9DF; }
 
-.main-header,
-.footer {
-  background-color: #DC1378; }
-
-body {
-  font-family: 'Lato', sans-serif;
-  font-size: 100%; }
-  body main section#google-map-container.container div.row {
-    width: 960px;
-    height: 500px; }
-    body main section#google-map-container.container div.row div#map-container {
-      width: 100%;
-      height: 100%; }
-      body main section#google-map-container.container div.row div#map-container div#googleMap {
-        width: 100%;
-        height: 100%;
-        position: relative; }
-
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=materialize.css.map */
