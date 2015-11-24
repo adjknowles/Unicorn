@@ -82,7 +82,7 @@
       <h1>Register</h1>
       <div class="row">
 
-        <form id="form-register" class="col s12">
+        <form id="form-register" action="/register" method="post" class="col s12">
           <label for="register-email"></label>
           <input type="text" class="validate" name="email" id="register-email" placeholder="Email" >
 
@@ -106,7 +106,7 @@
     <section id="login" class="container">
       <h1>Login</h1>
 
-      <form id="form-login">
+      <form id="form-login" action="/login" method="post" >
         
       </form>
     </section> 
@@ -114,7 +114,7 @@
     <section id="new-startup" class="container">
       <h1>Add a new startup</h1>
 
-      <form id="form-new-startup">
+      <form id="form-new-startup" action="/startup/new" method="post" >
         
       </form>
     </section>
@@ -122,7 +122,7 @@
     <section id="new-workspace" class="container">
       <h1>Add a new workspace</h1>
 
-      <form id="form-new-workspace">
+      <form id="form-new-workspace" action="/workspace/new" method="post" >
         
       </form>
     </section>
