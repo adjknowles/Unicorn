@@ -9,22 +9,22 @@ var workspacesController = require('../controllers/workspacesController');
 router.post('/login', authenticationsController.login);
 router.post('/register', authenticationsController.register);
 
-router.route('/startups')
-  .get(startupsController.startupsIndex)
+// router.route('/startups')
+//   .get(startupsController.startupsIndex)
   
-router.route('/startups/:id')
-  .get(startupsController.startupsShow)
-  .put(startupsController.startupsUpdate)
-  .patch(startupsController.startupsUpdate)
-  .delete(startupsController.startupsDelete)
+// router.route('/startups/:id')
+//   .get(startupsController.startupsShow)
+//   .put(startupsController.startupsUpdate)
+//   .patch(startupsController.startupsUpdate)
+//   .delete(startupsController.startupsDelete)
 
-router.route('/workspaces')
-  .get(workspacesController.workspacesIndex)
+// router.route('/workspaces')
+//   .get(workspacesController.workspacesIndex)
 
-router.route('/workspaces/:id')
-  .get(workspacesController.workspacesShow)
-  .put(workspacesController.workspacesUpdate)
-  .patch(workspacesController.workspacesUpdate)
-  .delete(workspacesController.workspacesDelete)
+// router.route('/workspaces/:id')
+//   .get(workspacesController.workspacesShow)
+//   .put(workspacesController.workspacesUpdate)
+//   .patch(workspacesController.workspacesUpdate)
+//   .delete(workspacesController.workspacesDelete)
 
 module.exports = router
