@@ -43,9 +43,7 @@ function getToken() {
 
 function authenticationSuccessful(data) {
   if (data.token) setToken(data.token);
-  // Commented out, so that logged in state isn't checked
-  // since we don't have the controllers for the startups and workspaces
-  // return checkLoginState();
+  return checkLoginState();
 }
 
 function checkLoginState(){
@@ -58,8 +56,11 @@ function checkLoginState(){
 
 function loggedInState(){
   $("section, .logged-out").hide();
+  $("#google-map-container, .logged-in").show();
   $("#results, .logged-in").show();
-  return [getStartups(), getWorkspaces()];
+  // Commented out, so that logged in state isn't checked
+  // since we don't have the controllers for the startups and workspaces
+  // return [getStartups(), getWorkspaces()];
 }
 
 function loggedOutState(){
