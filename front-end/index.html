@@ -106,8 +106,17 @@
     <section id="login" class="container">
       <h1>Login</h1>
 
-      <form id="form-login" action="/login" method="post" >
-        
+      <form id="form-login" action="/login" method="post"  class="col s12">
+        <label for="login-email"></label>
+        <input type="text" class="validate" name="email" id="login-email" placeholder="Email" >
+      <!-- 
+          <label for="login-username"></label>
+          <input type="text" class="validate" name="username" id="login-username" placeholder="Username" >
+       -->
+        <label for="login-password"></label>
+        <input type="password" class="validate" name="password" id="login-password" placeholder="Password" >
+
+        <button type="submit" class="btn waves-effect waves-light">Log in</button>
       </form>
     </section> 
 
