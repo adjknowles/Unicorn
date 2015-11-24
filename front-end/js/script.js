@@ -69,19 +69,21 @@ function getStartupsAndWorkspaces(){
 function displayStartupsAndWorkspaces(data){
   hideErrors();
   hideStartupsAndWorkspaces();
-  
-  // return $.each(data.users, function(index, user) {
-  //   $(".users").prepend('<div class="media">' +
-  //                         '<div class="media-left">' +
-  //                           '<a href="#">' +
-  //                             '<img class="media-object" src="' + user.local.image +'">' +
-  //                           '</a>' +
-  //                         '</div>' +
-  //                         '<div class="media-body">' +
-  //                           '<h4 class="media-heading">@' + user.local.username + '</h4>' +
-  //                           '<p>' + user.local.fullname + '</p>'+
-  //                         '</div>' +
-  //                       '</div>');
+  displayStartups();
+  displayWorkspaces();
+}
+
+function displayStartups(data){
+  return $('results').prepend('<p>Startups here!</p>');
+  // return _.each(data.startups, function(startup){
+  //   $('results').prepend(startup(startup));
+  // });
+}
+
+function displayWorkspaces(data){
+  return $('results').prepend('<p>Workspaces here!</p>');
+  // return _.each(data.workspaces, function(workspace){
+  //   $('results').prepend(workspace(workspace));
   // });
 }
 
