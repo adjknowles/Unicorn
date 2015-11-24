@@ -5,9 +5,22 @@
   background-color: $blue;
 }
 
-.main-header, 
-.footer {
+.btn:hover {
   background-color: $pink;
+}
+
+.main-header {
+  background-color: $pink;
+}
+
+#map-container {
+  background-size: cover !important;
+  background-position: center;
+  text-align: center;
+}
+
+footer {
+  background-color: $pink !important;
 }
 
 body{
@@ -99,6 +112,20 @@ body{
     section#new-workspace {
       form#form-new-workspace {
 
+      }
+    }
+  }
+
+  footer {
+    div.container {
+      div.row {       
+        div {
+          h5 {
+          }
+          p {
+
+          }
+        }
       }
     }
   }
