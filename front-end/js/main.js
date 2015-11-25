@@ -37,6 +37,7 @@ function showAddWorkspace(){
   $("section").hide();
   $("#google-map-container").show();
   $("#new-workspace").show();
+  console.log("showAddWorkspace -> main.js")
 }
 
 function submitForm(){
@@ -64,6 +65,7 @@ function ajaxRequest(method, url, data, callback) {
 
 function setRequestHeader(xhr, settings) {
   var token = getToken();
+  console.log(token)
   if (token) return xhr.setRequestHeader('Authorization','Bearer ' + token);
 }
 

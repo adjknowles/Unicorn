@@ -177,68 +177,72 @@
     <section id="new-workspace" class="container">
       <h1>Add a New Workspace</h1>
 
-      <form id="form-new-workspace" action="/workspace" method="post" >
+      <form id="form-new-workspace" action="/workspaces" method="post" >
 
         <input type="text" id="workspace-search-box" class="search-box form-control" placeholder="Search for your workspace">
         
         <button id="add-workspace-to-form" class="btn waves-effect waves-light">Add this workspace</button>
 
-        <label for="workspace-name"></label>
-        <input type="text" class="validate" name="name" id="workspace-name" placeholder="Name" >
+        <input type="text" class="validate" name="latitude" id="new-workspace-latitude" placeholder="" >
 
-        <label for="workspace-website"></label>
-        <input type="text" class="validate" name="website" id="workspace-website" placeholder="Website" >
+        <input type="text" class="validate" name="longitude" id="new-workspace-longitude" placeholder="" >
 
-        <label for="workspace-email"></label>
-        <input type="email" class="validate" name="email" id="workspace-name" placeholder="Email" >
+        <label for="new-workspace-name"></label>
+        <input type="text" class="validate" name="name" id="new-workspace-name" placeholder="Name" >
 
-        <label for="workspace-address"></label>
-        <input type="text" class="validate" name="address" id="workspace-address" placeholder="Address" >
+        <label for="new-workspace-website"></label>
+        <input type="text" class="validate" name="website" id="new-workspace-website" placeholder="Website" >
+
+        <label for="new-workspace-email"></label>
+        <input type="email" class="validate" name="email" id="new-workspace-name" placeholder="Email" >
+
+        <label for="new-workspace-address"></label>
+        <input type="text" class="validate" name="address" id="new-workspace-address" placeholder="Address" >
 
         <label for="workpsace-postcode"></label>
         <input type="text" class="validate" name="postcode" id="workpsace-postcode" placeholder="Postcode" >
         
-        <label for="workspace-telephone"></label>
-        <input type="text" class="validate" name="telephone" id="workspace-telephone" placeholder="Telephone" >
+        <label for="new-workspace-telephone"></label>
+        <input type="text" class="validate" name="telephone" id="new-workspace-telephone" placeholder="Telephone" >
 
-        <label for="workspace-contactName"></label>
-        <input type="text" class="validate" name="contactName" id="workspace-contactName" placeholder="Contact Name" >
+        <label for="new-workspace-contactName"></label>
+        <input type="text" class="validate" name="contactName" id="new-workspace-contactName" placeholder="Contact Name" >
 
-        <label for="workspace-twitter"></label>
-        <input type="text" class="validate" name="twitter" id="workspace-twitter" placeholder="Twitter" >
+        <label for="new-workspace-twitter"></label>
+        <input type="text" class="validate" name="twitter" id="new-workspace-twitter" placeholder="Twitter" >
 
-        <label for="workspace-facebook"></label>
-        <input type="text" class="validate" name="facebook" id="workspace-facebook" placeholder="Facebook" >
+        <label for="new-workspace-facebook"></label>
+        <input type="text" class="validate" name="facebook" id="new-workspace-facebook" placeholder="Facebook" >
 
-        <label for="workspace-openingTimesWeekdayOpen"></label>
-        <input type="text" class="validate" name="openingTimesWeekdayOpen" id="workspace-openingTimesWeekdayOpen" placeholder="Weekday Open" >
+        <label for="new-workspace-openingTimesWeekdayOpen"></label>
+        <input type="text" class="validate" name="openingTimesWeekdayOpen" id="new-workspace-openingTimesWeekdayOpen" placeholder="Weekday Open" >
 
-        <label for="workspace-openingTimesWeekdayClose"></label>
-        <input type="text" class="validate" name="openingTimesWeekdayClose" id="workspace-openingTimesWeekdayClose" placeholder="Weekday Close" >
+        <label for="new-workspace-openingTimesWeekdayClose"></label>
+        <input type="text" class="validate" name="openingTimesWeekdayClose" id="new-workspace-openingTimesWeekdayClose" placeholder="Weekday Close" >
 
-        <label for="workspace-openingTimesWeekdayClose"></label>
-        <input type="text" class="validate" name="openingTimesWeekdayClose" id="workspace-openingTimesWeekdayClose" placeholder="Weekday Close" >
+        <label for="new-workspace-openingTimesWeekdayClose"></label>
+        <input type="text" class="validate" name="openingTimesWeekdayClose" id="new-workspace-openingTimesWeekdayClose" placeholder="Weekday Close" >
 
-        <label for="workspace-openingTimesWeekendOpen"></label>
-        <input type="text" class="validate" name="openingTimesWeekendOpen" id="workspace-openingTimesWeekendOpen" placeholder="Weekend Open" >
+        <label for="new-workspace-openingTimesWeekendOpen"></label>
+        <input type="text" class="validate" name="openingTimesWeekendOpen" id="new-workspace-openingTimesWeekendOpen" placeholder="Weekend Open" >
 
-        <label for="workspace-openingTimesWeekendClose"></label>
-        <input type="text" class="validate" name="openingTimesWeekendClose" id="workspace-openingTimesWeekendClose" placeholder="Weekend Close" >
+        <label for="new-workspace-openingTimesWeekendClose"></label>
+        <input type="text" class="validate" name="openingTimesWeekendClose" id="new-workspace-openingTimesWeekendClose" placeholder="Weekend Close" >
 
-        <label for="workspace-photo"></label>
-        <input type="file""image" class="validate" name="photo" id="workspace-photo" placeholder="Photo" >
+        <label for="new-workspace-photo"></label>
+        <input type="file""image" class="validate" name="photo" id="new-workspace-photo" placeholder="Photo" >
 
-        <label for="workspace-rent"></label>
-        <input type="text" class="validate" name="photo" id="workspace-photo" placeholder="Rent" >
+        <label for="new-workspace-rent"></label>
+        <input type="text" class="validate" name="photo" id="new-workspace-photo" placeholder="Rent" >
 
-        <label for="workspace-services"></label>
-        <input type="text" class="validate" name="services" id="workspace-services" placeholder="Services" >
+        <label for="new-workspace-services"></label>
+        <input type="text" class="validate" name="services" id="new-workspace-services" placeholder="Services" >
 
-        <label for="workspace-sector"></label>
-        <input type="text" class="validate" name="sector" id="workspace-sector" placeholder="Sector" >
+        <label for="new-workspace-sector"></label>
+        <input type="text" class="validate" name="sector" id="new-workspace-sector" placeholder="Sector" >
 
-        <label for="workspace-spaceType"></label>
-        <input type="text" class="validate" name="spaceType" id="workspace-spaceType" placeholder="Space Type" >
+        <label for="new-workspace-spaceType"></label>
+        <input type="text" class="validate" name="spaceType" id="new-workspace-spaceType" placeholder="Space Type" >
 
         <button type="submit" class="btn waves-effect waves-light">New Workspace</button>
     </form>
