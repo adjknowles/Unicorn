@@ -1,18 +1,21 @@
 $(document).ready(function(){
   $("form").on("submit", submitForm);
-  $("#nav-login").on("click", login);
-  $("#nav-logout").on("click", logout);
-  $("#nav-register").on("click", register);
-  $("#add-startup").on("click", showAddStartup);
-  $("#add-workspace").on("click", showAddWorkspace);
+  $(".login-link, .register-link, .map-link, .addstartup-link, .addworkspace-link").on("click", showPage)
+
+  // $("#nav-login").on("click", login);
+  $(".logout-link").on("click", logout);
+  // $("#nav-register").on("click", register);
+  // $("#addstartup").on("click", showAddStartup);
+  // $("#addworkspace").on("click", showAddWorkspace);
   hideErrors();
   checkLoginState();
 });
 
-function login(){
+function showPage(){
+  event.preventDefault();
+  var linkClass = $(this).attr("class").split("-")[0];
   $("section").hide();
-  $("#google-map-container").show();
-  $("#login").show();
+  return $("#" + linkClass).show();
 }
 
 function logout(){
@@ -21,24 +24,30 @@ function logout(){
   return loggedOutState();
 }
 
-function register(){
-  $("section").hide();
-  $("#google-map-container").show();
-  $("#register").show();
-}
+// function login(){
+//   $("section").hide();
+//   $("#google-map-container").show();
+//   $("#login").show();
+// }
 
-function showAddStartup(){
-  $("section").hide();
-  $("#google-map-container").show();
-  $("#new-startup").show();
-}
+// function register(){
+//   $("section").hide();
+//   $("#google-map-container").show();
+//   $("#register").show();
+// }
 
-function showAddWorkspace(){
-  $("section").hide();
-  $("#google-map-container").show();
-  $("#new-workspace").show();
-  console.log("showAddWorkspace -> main.js")
-}
+// function showAddStartup(){
+//   $("section").hide();
+//   $("#google-map-container").show();
+//   $("#new-startup").show();
+// }
+
+// function showAddWorkspace(){
+//   $("section").hide();
+//   $("#google-map-container").show();
+//   $("#new-workspace").show();
+//   console.log("showAddWorkspace -> main.js")
+// }
 
 function submitForm(){
   event.preventDefault();
@@ -96,18 +105,18 @@ function checkLoginState(){
 
 function loggedInState(){
   $("section, .logged-out").hide();
-  $("#google-map-container, .logged-in").show();
-  $("#results, .logged-in").show();
+  $("#map, .logged-in").show();
+  
+  // $("#results, .logged-in").show();
   // Commented out, so that logged in state isn't checked
   // since we don't have the controllers for the startups and workspaces
   // return [getStartups(), getWorkspaces()];
 }
 
 function loggedOutState(){
-  $(".logged-in").hide();
-  $(".logged-out").show();
   $("section").hide();
-  $("#google-map-container").show();
+  $(".logged-in").hide();
+  $("#map, .logged-out").show();
   return hideResults();
 }
 

@@ -10,8 +10,6 @@ var mapApp = mapApp || {};
 mapApp.captureLatLng = function(){
   event.preventDefault();
 
-  console.log("CAPTURING")
-
   var $form = $(this).parent();
   var type  = $form.attr("id").replace("form-new-", "");
   console.log(type)
@@ -26,13 +24,13 @@ mapApp.captureLatLng = function(){
 }
 
 mapApp.addMarkers = function(){
-  console.log("Add markers")
-
   ajaxRequest("get", "http://localhost:3000/api/workspaces", null, function(data){
     mapApp.clearMarkers();
     $.each(data.workspaces, function(index, marker){
       console.log(marker)
       mapApp.addMarkerWithTimeout(marker, index * 200);
+
+      $("#results").append("<li><h1>"+marker.name+"</h1></li>");
     })
   });
 }
