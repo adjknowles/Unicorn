@@ -3,6 +3,8 @@ var mongoose = require("mongoose");
 var startupSchema = new mongoose.Schema({ 
     name:                   { type: String, required: true },
     headquarters:           { type: String, required: true },
+    latitude:               { type: String },
+    longitude:              { type: String },
     founders:               { type: String },
     sector:                 { type: String, required: true },
     email:                  { type: String, required: true },

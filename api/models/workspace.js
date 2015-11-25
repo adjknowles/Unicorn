@@ -6,6 +6,8 @@ var workspaceSchema = new mongoose.Schema({
     email:       { type: String, required: true },
     address:     { type: String, required: true },
     postcode:    { type: String, required: true },
+    latitude:    { type: String },
+    longitude:   { type: String },
     telephone:   { type: String },
     contactName: { type: String },
     twitter:     { type: String, required: true },
