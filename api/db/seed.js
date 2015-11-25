@@ -153,87 +153,87 @@ var startup5 = new Startup({
 });
 startup5.save(confirmStartupSave);
 
-var startup2 = new Startup({   
-    name:                   "",
-    headquarters:           "",
-    latitude:               "",
-    longitude:              "",
+var startup6 = new Startup({   
+    name:                   "SmartTrade App",
+    headquarters:           "10-16 Scrutton Street, London, EC2A 4RU",
+    latitude:               "51.523478",
+    longitude:              "-0.083679",
     founders:               "",
-    sector:                 "",
-    email:                  "",
-    phone:                  "",
-    website:                "",
-    twitter:                "",
+    sector:                 "Tech",
+    email:                  "support@smarttradeapp.com",
+    phone:                  "0203 322 8414",
+    website:                "https://smarttradeapp.com",
+    twitter:                "https://twitter.com/smarttradeapp",
     facebook:               "",
-    photo:                  "",
-    logo:                   ""
+    photo:                  "https://pbs.twimg.com/profile_images/648455689032044544/7N-90fkq.png",
+    logo:                   "https://pbs.twimg.com/profile_images/648455689032044544/7N-90fkq.png"
 });
-startup2.save(confirmStartupSave);
+startup6.save(confirmStartupSave);
 
-var startup2 = new Startup({   
-    name:                   "",
-    headquarters:           "",
-    latitude:               "",
-    longitude:              "",
+var startup7 = new Startup({   
+    name:                   "Quick Blox",
+    headquarters:           "83 Baker Street, London, Greater London, W1U 6AG",
+    latitude:               "51.520165",
+    longitude:              "-0.156893",
     founders:               "",
-    sector:                 "",
-    email:                  "",
-    phone:                  "",
-    website:                "",
-    twitter:                "",
-    facebook:               "",
-    photo:                  "",
-    logo:                   ""
+    sector:                 "Tech",
+    email:                  "enterprise@quickblox.com",
+    phone:                  "020 3053 0660",
+    website:                "http://quickblox.com",
+    twitter:                "https://twitter.com/QuickBlox",
+    facebook:               "https://www.facebook.com/quickblox",
+    photo:                  "https://scontent-lhr3-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/64927_10151537314663888_653981503_n.png?oh=eaff9473454b3a9869e012aa9c8410d8&oe=56EED7BB",
+    logo:                   "https://scontent-lhr3-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/64927_10151537314663888_653981503_n.png?oh=eaff9473454b3a9869e012aa9c8410d8&oe=56EED7BB"
 });
-startup2.save(confirmStartupSave);
+startup7.save(confirmStartupSave);
 
-var startup2 = new Startup({   
-    name:                   "",
-    headquarters:           "",
-    latitude:               "",
-    longitude:              "",
+var startup8 = new Startup({   
+    name:                   "Stick Sports",
+    headquarters:           "14 Bonhill Street, London, Greater London, EC2A 4BX",
+    latitude:               "51.523034",
+    longitude:              "-0.084900",
     founders:               "",
-    sector:                 "",
+    sector:                 "Sport",
     email:                  "",
     phone:                  "",
-    website:                "",
-    twitter:                "",
-    facebook:               "",
-    photo:                  "",
-    logo:                   ""
+    website:                "http://www.sticksports.com",
+    twitter:                "https://twitter.com/stickcricket",
+    facebook:               "https://www.facebook.com/stickcricket",
+    photo:                  "https://pbs.twimg.com/profile_images/1968891891/tw_sc_thumb.jpg",
+    logo:                   "https://pbs.twimg.com/profile_images/1968891891/tw_sc_thumb.jpg"
 });
-startup2.save(confirmStartupSave);
+startup8.save(confirmStartupSave);
 
-var startup2 = new Startup({   
-    name:                   "",
-    headquarters:           "",
-    latitude:               "",
-    longitude:              "",
+var startup9 = new Startup({   
+    name:                   "Growth Intelligence",
+    headquarters:           "1 Canada Square, Canary Wharf, London, E14 5AH",
+    latitude:               "51.504603",
+    longitude:              "-0.017504",
     founders:               "",
-    sector:                 "",
-    email:                  "",
-    phone:                  "",
-    website:                "",
-    twitter:                "",
+    sector:                 "Marketing",
+    email:                  "info@growthintel.com",
+    phone:                  "020 37257575",
+    website:                "http://growthintel.com",
+    twitter:                "https://twitter.com/growthintel",
     facebook:               "",
-    photo:                  "",
-    logo:                   ""
+    photo:                  "https://pbs.twimg.com/profile_images/614431071556501504/WclWexaB.png",
+    logo:                   "https://pbs.twimg.com/profile_images/614431071556501504/WclWexaB.png"
 });
-startup2.save(confirmStartupSave);
+startup9.save(confirmStartupSave);
 
-var startup2 = new Startup({   
-    name:                   "",
-    headquarters:           "",
+var startup10 = new Startup({   
+    name:                   "Second Home",
+    headquarters:           "68-80 Hanbury St, London, E1 5JL",
     latitude:               "",
     longitude:              "",
-    founders:               "",
-    sector:                 "",
-    email:                  "",
-    phone:                  "",
-    website:                "",
-    twitter:                "",
-    facebook:               "",
-    photo:                  "",
-    logo:                   ""
+    founders:               "Sam Aldenton, Rohan Silva",
+    sector:                 "Tech",
+    email:                  "hello@secondhome.io",
+    phone:                  "020 3818 3240",
+    website:                "https://www.secondhome.io",
+    twitter:                "https://www.twitter.com/secondhomeldn",
+    facebook:               "https://www.facebook.com/secondhomeldn",
+    photo:                  "https://nuu-assets.s3.amazonaws.com/uploads/attachment/filename/220/large_SH_2part_Logo_Texture_100_RGB_06_Lo__1_.png",
+    logo:                   "https://nuu-assets.s3.amazonaws.com/uploads/attachment/filename/220/large_SH_2part_Logo_Texture_100_RGB_06_Lo__1_.png"
 });
-startup2.save(confirmStartupSave);
+startup10.save(confirmStartupSave);
