@@ -55,9 +55,9 @@ mapApp.postPlace = function(){
 mapApp.init = function(){
 
   mapApp.canvas = document.getElementById('googleMap');
-  mapApp.center = new google.maps.LatLng(51.5072, 0.1275)
+  mapApp.center = new google.maps.LatLng(51.507904, -0.127466)
   mapApp.mapOptions = {
-    zoom: 14,
+    zoom: 13,
     center: mapApp.center,
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
