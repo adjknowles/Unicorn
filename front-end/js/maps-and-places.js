@@ -1,8 +1,96 @@
 $(document).ready(function(){
-
+  captureLatLng();
   displayMap();
-  
+  $('#add-place-to-form').on('click', captureLatLng);
+  $('#form-new-startup').on('submit', postStartup);
 });
+
+function captureLatLng(){
+  event.preventDefault();
+
+  // Place Search Box is created using google maps places & is linked to the html input box
+  var placeSearchBox = new google.maps.places.Autocomplete(document.getElementById('place-search-box'));
+
+  google.maps.event.addListener(placeSearchBox, 'places_changed', function(){
+    var place = placeSearchBox.getPlace();
+    var placeLatitude  = '';
+    var placeLongitude = ''; 
+    console.log(place);
+    if(place) {
+
+      var bounds = new google.maps.LatLngBounds();
+      var icon = 'http://orig11.deviantart.net/cb61/f/2010/190/d/b/rainbow_unicorn_icon_by_unicornmolester.gif';
+      var marker = new google.maps.Marker({
+        map: map, //I am not sure that this is getting the 'map' object
+        icon: image,                              
+        title: place.name,
+        position: place.geometry.location
+      });
+      console.log(place.geometry.location.lat());
+      console.log(place.geometry.location.lng());
+
+      placeLatitude  = place.geometry.location.lat();
+      placeLongitude = place.geometry.location.lng();
+      $("#new-startup-latitude").val(placeLatitude);
+      $("#new-startup-longitude").val(placeLongitude);
+    }
+  })
+
+  // hard coding for now.
+  placeLatitude  = '51.5072';
+  placeLongitude = '0.1275'; 
+  $("#new-startup-latitude").val(placeLatitude);
+  $("#new-startup-longitude").val(placeLongitude);
+}
+
+function postStartup(){
+  event.preventDefault();
+  // var data = $(this).serialize();
+  var data = {
+    name:         $("#new-startup-name").val(),
+    headquarters: $("#new-startup-headquarters").val(),
+    latitude:     $("#new-startup-latitude").val(),
+    longitude:    $("#new-startup-longitude").val(),
+    founders:     $("#new-startup-founders").val(),
+    sector:       $("#new-startup-sector").val(),
+    email:        $("#new-startup-email").val(),
+    phone:        $("#new-startup-phone").val(),
+    website:      $("#new-startup-website").val(),
+    twitter:      $("#new-startup-twitter").val(),
+    facebook:     $("#new-startup-facebook").val(),
+    photo:        $("#new-startup-photo").val(),
+    logo:         $("#new-startup-logo").val(),
+  };
+
+  $.ajax({
+    method:     'post', //method,
+    url:        'https://localhost:3000/api/startups', //url,
+    data:       data,
+    beforeSend: setRequestHeader
+  })
+  .done(function(data){
+    return showStartup(data);
+  })
+  .fail(function(data){
+    displayErrors(data.responseJSON.message);
+  });
+}
+
+// function displayOOMap(){
+//   var Map =  Map || {};
+//   var mapOptions, canvas, map;
+//   var markers = [];
+//   var addressBox = new google.maps.places.SearchBox(document.getElementById('addressbox'));
+//   Map.initializeMap = function(){
+//     Map.mapOptions = {
+//       zoom:14,
+//       center: {lat: 51.5072, lng: 0.1275},
+//       mapTypeId:google.maps.MapTypeId.ROADMAP
+//     };
+//     canvas = document.getElementById('googleMap');
+//     map = new google.maps.Map(canvas, mapOptions);
+//   }
+// }
 
 function displayMap(){
   //Initialize map variables
@@ -26,7 +114,7 @@ function displayMap(){
 
     canvas = document.getElementById('googleMap');
     map = new google.maps.Map(canvas, mapOptions);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
   };
 
   mapApp.searchBox = function(){
@@ -40,6 +128,7 @@ function displayMap(){
     var bounds = new google.maps.LatLngBounds();
     
     for (var i = 0, place; place = places[i]; i++) {
+      console.log(place);
       var image = {
         url: place.icon,
         size: new google.maps.Size(71, 71),
@@ -138,4 +227,4 @@ function displayMap(){
   })
 
   mapApp.initializeMap();
-}
+}    
