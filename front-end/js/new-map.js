@@ -63,18 +63,49 @@ mapApp.postStartup = function(){
 
 mapApp.init = function(){
 
-  var markers = [];
-
-  var canvas = document.getElementById('googleMap');
-  var center = new google.maps.LatLng(51.5072, 0.1275)
-  var mapOptions = {
+  mapApp.canvas = document.getElementById('googleMap');
+  mapApp.center = new google.maps.LatLng(51.5072, 0.1275)
+  mapApp.mapOptions = {
     zoom: 14,
-    center: center,
+    center: mapApp.center,
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
-  this.map = new google.maps.Map(canvas, mapOptions);
+
+  this.map = new google.maps.Map(mapApp.canvas, mapApp.mapOptions);
+
+  mapApp.markers = [];
+
+  // Icons for markers
   mapApp.startupIcon   = 'http://i.imgur.com/zSIbR3c.jpg';
   mapApp.workspaceIcon = 'http://i.imgur.com/J6p1ops.png';
+
+  
+  // Get data with AJAX
+  // allStartups = data.startups;
+
+  // mapApp.dropMarkers = function() {
+  //   mapApp.clearMarkers();
+  //   for (var i = 0; i < allStartups.length; i++) {
+  //     mapApp.addMarkerWithTimeout(allStartups[i], i * 200);
+  //   }
+  // }
+
+  mapApp.clearMarkers = function() {
+    for (var i = 0; i < mapApp.markers.length; i++) {
+      mapApp.markers[i].setMap(null);
+    }
+    mapApp.markers = [];
+  }
+
+  mapApp.addMarkerWithTimeout = function(position, timeout) {
+    window.setTimeout(function() {
+      mapApp.markers.push(new google.maps.Marker({
+        position: position,
+        map: map,
+        animation: google.maps.Animation.DROP
+      }));
+    }, timeout);
+  }
 
   // Main Search Box
   mapApp.mainSearchBox = new google.maps.places.Autocomplete(document.getElementById('main-search-box'));
@@ -82,7 +113,7 @@ mapApp.init = function(){
     mapApp.place = mapApp.mainSearchBox.getPlace();
   });
   google.maps.event.addDomListener(window, 'resize', function(){
-    mapApp.map.setCenter(center);
+    mapApp.map.setCenter(mapApp.center);
   });
 
   // Add Google Autocomplete box to startup-search-box input
@@ -92,10 +123,11 @@ mapApp.init = function(){
     mapApp.newStartup = mapApp.startupSearchBox.getPlace();   
     var icon = mapApp.startupIcon;
     var marker = new google.maps.Marker({
-      map:      mapApp.map,
-      icon:     icon,
-      title:    mapApp.newStartup.name,
-      position: mapApp.newStartup.geometry.location
+      map:       mapApp.map,
+      icon:      icon,
+      animation: google.maps.Animation.DROP,
+      title:     mapApp.newStartup.name,
+      position:  mapApp.newStartup.geometry.location
     });
     // Recenter the map onto the newStartup position
     mapApp.map.setCenter(mapApp.newStartup.geometry.location);
@@ -110,6 +142,7 @@ mapApp.init = function(){
     var marker = new google.maps.Marker({
       map:      mapApp.map,
       icon:     icon,
+      animation: google.maps.Animation.DROP,
       title:    mapApp.newWorkspace.name,
       position: mapApp.newWorkspace.geometry.location
     });
