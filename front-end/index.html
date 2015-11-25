@@ -72,13 +72,15 @@
         <div id="map-container" class="col s8">
           <div id="googleMap">
           </div>
-          <input type="text" id="searchbox" class="places-autocomplete-box form-control" placeholder="Search">
+          <!-- <input type="text" id="searchbox" class="places-autocomplete-box form-control" placeholder="Search"> -->
         </div>
         <div id="directions-container" class="col s4">
           <div id="directions-panel"></div>
         </div>
       </div>
     </section>
+    
+    <input type="text" id="main-search-box" class="search-box form-control" placeholder="Enter a place and we'll find you unicorns & shelters">
 
     <section id="register" class="container">
       <h1>Register</h1>
@@ -125,9 +127,9 @@
     <section id="new-startup" class="container">
       <h1>Add a new startup</h1>
 
-      <input type="text" id="place-search-box" class="places-autocomplete-box form-control" placeholder="Search for your startup">
+      <input type="text" id="startup-search-box" class="search-box form-control" placeholder="Search for your startup">
       
-      <button id="add-place-to-form" class="btn waves-effect waves-light">Add this place</button>
+      <button id="add-startup-to-form" class="btn waves-effect waves-light">Add this startup</button>
 
       <form id="form-new-startup" action="/startup/new" method="post" class="col s12">
 
@@ -176,6 +178,11 @@
       <h1>Add a New Workspace</h1>
 
       <form id="form-new-workspace" action="/workspace/new" method="post" >
+
+        <input type="text" id="workspace-search-box" class="search-box form-control" placeholder="Search for your workspace">
+        
+        <button id="add-workspace-to-form" class="btn waves-effect waves-light">Add this workspace</button>
+
         <label for="workspace-name"></label>
         <input type="text" class="validate" name="name" id="workspace-name" placeholder="Name" >
 
