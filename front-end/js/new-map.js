@@ -32,21 +32,22 @@ mapApp.postStartup = function(){
   event.preventDefault();
 
   var data = {
-    name:         $("#new-startup-name").val(),
-    headquarters: $("#new-startup-headquarters").val(),
-    latitude:     mapApp.startupLat,
-    longitude:    mapApp.startupLng,
+    name:         mapApp.newStartup.name || $("#new-startup-name").val(),
+    headquarters: mapApp.newStartup.formatted_address || $("#new-startup-headquarters").val(),
+    latitude:     mapApp.startupLat || '',
+    longitude:    mapApp.startupLng || '',
+    email:        mapApp.newStartup.email || $("#new-startup-email").val(),
+    phone:        mapApp.newStartup.formatted_phone_number || $("#new-startup-phone").val(),
+    website:      mapApp.newStartup.website || $("#new-startup-website").val(),
     founders:     $("#new-startup-founders").val(),
     sector:       $("#new-startup-sector").val(),
-    email:        $("#new-startup-email").val(),
-    phone:        $("#new-startup-phone").val(),
-    website:      mapApp.newStartup.website,
     twitter:      $("#new-startup-twitter").val(),
     facebook:     $("#new-startup-facebook").val(),
     photo:        $("#new-startup-photo").val(),
     logo:         $("#new-startup-logo").val(),
   };
 
+  ajaxRequest(method, url, data, callback) 
   $.ajax({
     method:     'post', //method,
     url:        'https://localhost:3000/api/startups', //url,
@@ -60,6 +61,42 @@ mapApp.postStartup = function(){
     displayErrors(data.responseJSON.message);
   });
 }
+
+mapApp.postWorkspace = function(){
+  event.preventDefault();
+
+  var data = {
+
+    // name:         mapApp.newWorkspace.name || $("#new-workspace-name").val(),
+    // address: mapApp.newWorkspace.formatted_address || $("#new-workspace-address").val(),
+    // latitude:     mapApp.workspaceLat || '',
+    // longitude:    mapApp.workspaceLng || '',
+    // email:        mapApp.newWorkspace.email || $("#new-workspace-email").val(),
+    // phone:        mapApp.newWorkspace.formatted_phone_number || $("#new-workspace-phone").val(),
+    // website:      mapApp.newWorkspace.website || $("#new-workspace-website").val(),
+    // founders:     $("#new-workspace-founders").val(),
+    // sector:       $("#new-workspace-sector").val(),
+    // twitter:      $("#new-workspace-twitter").val(),
+    // facebook:     $("#new-workspace-facebook").val(),
+    // photo:        $("#new-workspace-photo").val(),
+    // logo:         $("#new-workspace-logo").val(),
+  };
+
+  ajaxRequest(method, url, data, callback) 
+  $.ajax({
+    method:     'post', //method,
+    url:        'https://localhost:3000/api/workspaces', //url,
+    data:       data,
+    beforeSend: setRequestHeader
+  })
+  .done(function(data){
+    return showWorkspace(data);
+  })
+  .fail(function(data){
+    displayErrors(data.responseJSON.message);
+  });
+}
+
 
 mapApp.init = function(){
 
@@ -90,22 +127,22 @@ mapApp.init = function(){
   //   }
   // }
 
-  mapApp.clearMarkers = function() {
-    for (var i = 0; i < mapApp.markers.length; i++) {
-      mapApp.markers[i].setMap(null);
-    }
-    mapApp.markers = [];
-  }
+  // mapApp.clearMarkers = function() {
+  //   for (var i = 0; i < mapApp.markers.length; i++) {
+  //     mapApp.markers[i].setMap(null);
+  //   }
+  //   mapApp.markers = [];
+  // }
 
-  mapApp.addMarkerWithTimeout = function(position, timeout) {
-    window.setTimeout(function() {
-      mapApp.markers.push(new google.maps.Marker({
-        position: position,
-        map: map,
-        animation: google.maps.Animation.DROP
-      }));
-    }, timeout);
-  }
+  // mapApp.addMarkerWithTimeout = function(position, timeout) {
+  //   window.setTimeout(function() {
+  //     mapApp.markers.push(new google.maps.Marker({
+  //       position: position,
+  //       map: map,
+  //       animation: google.maps.Animation.DROP
+  //     }));
+  //   }, timeout);
+  // }
 
   // Main Search Box
   mapApp.mainSearchBox = new google.maps.places.Autocomplete(document.getElementById('main-search-box'));
@@ -119,8 +156,9 @@ mapApp.init = function(){
   // Add Google Autocomplete box to startup-search-box input
   mapApp.startupSearchBox = new google.maps.places.Autocomplete(document.getElementById('startup-search-box'));
   google.maps.event.addListener(mapApp.startupSearchBox, 'place_changed', function(){
-
-    mapApp.newStartup = mapApp.startupSearchBox.getPlace();   
+    mapApp.newStartup = '';
+    mapApp.newStartup = mapApp.startupSearchBox.getPlace();
+    console.log(mapApp.newStartup);   
     var icon = mapApp.startupIcon;
     var marker = new google.maps.Marker({
       map:       mapApp.map,
