@@ -40,17 +40,21 @@ function displayMap(){
     var bounds = new google.maps.LatLngBounds();
     
     for (var i = 0, place; place = places[i]; i++) {
-      var image = {
-        url: place.icon,
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(25, 25)
-      };
+      var image = "http://i.imgur.com/J6p1ops.png?1"
+      // Unicorn url "http://i.imgur.com/zSIbR3c.jpg?1"
+      // {
+      //   url: place.icon,
+      //   size: new google.maps.Size(71, 71),
+      //   origin: new google.maps.Point(0, 0),
+      //   anchor: new google.maps.Point(17, 34),
+      //   scaledSize: new google.maps.Size(25, 25)
+      // };
+
 
       // Create a marker for each place.
       var marker = new google.maps.Marker({
         map: map,
+        animation: google.maps.Animation.DROP,
         icon: image,                              
         title: place.name,
         position: place.geometry.location
@@ -61,6 +65,7 @@ function displayMap(){
     }
     map.fitBounds(bounds); 
     
+
   };
 
   mapApp.directions = function(){
