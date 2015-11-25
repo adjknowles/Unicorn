@@ -7,6 +7,7 @@ $(document).ready(function(){
 });
 
 function showAddStartup(){
+  alert("hi");
   $("section").hide();
   $("#google-map-container").show();
   $("#new-startup").show();
