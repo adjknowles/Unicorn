@@ -73,41 +73,56 @@ mapApp.init = function(){
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
   this.map = new google.maps.Map(canvas, mapOptions);
+  mapApp.startupIcon   = 'http://i.imgur.com/zSIbR3c.jpg';
+  mapApp.workspaceIcon = 'http://i.imgur.com/J6p1ops.png';
 
-  // Top SearchBox
-  var searchBox = new google.maps.places.Autocomplete(document.getElementById('searchbox'));
-  google.maps.event.addListener(searchBox, 'place_changed', function(){
-    mapApp.place = searchBox.getPlace();
-    // Add either zoom in on place, or add marker or whatever
-    console.log(mapApp.place);
+  // Main Search Box
+  mapApp.mainSearchBox = new google.maps.places.Autocomplete(document.getElementById('main-search-box'));
+  google.maps.event.addListener(mapApp.mainSearchBox, 'place_changed', function(){
+    mapApp.place = mapApp.mainSearchBox.getPlace();
   });
   google.maps.event.addDomListener(window, 'resize', function(){
     mapApp.map.setCenter(center);
   });
 
-  // Add new search bar
-  var placeSearchBox = new google.maps.places.Autocomplete(document.getElementById('place-search-box'));
-  google.maps.event.addListener(placeSearchBox, 'place_changed', function(){
+  // Add Google Autocomplete box to startup-search-box input
+  mapApp.startupSearchBox = new google.maps.places.Autocomplete(document.getElementById('startup-search-box'));
+  google.maps.event.addListener(mapApp.startupSearchBox, 'place_changed', function(){
 
-    mapApp.newStartup = placeSearchBox.getPlace();
-    // Add either zoom in on place, or add marker or whatever
-    
-    var icon = 'http://orig11.deviantart.net/cb61/f/2010/190/d/b/rainbow_unicorn_icon_by_unicornmolester.gif';
-
+    mapApp.newStartup = mapApp.startupSearchBox.getPlace();   
+    var icon = mapApp.startupIcon;
     var marker = new google.maps.Marker({
-      map: mapApp.map,
-      icon: icon,
-      title: mapApp.newStartup.name,
+      map:      mapApp.map,
+      icon:     icon,
+      title:    mapApp.newStartup.name,
       position: mapApp.newStartup.geometry.location
     });
-
     // Recenter the map onto the newStartup position
     mapApp.map.setCenter(mapApp.newStartup.geometry.location);
-    console.log(mapApp.newStartup);
   });
 
+  // Add Google Autocomplete box to workspace-search-box input
+  mapApp.workspaceSearchBox = new google.maps.places.Autocomplete(document.getElementById('workspace-search-box'));
+  google.maps.event.addListener(mapApp.workspaceSearchBox, 'place_changed', function(){
 
-  $('.places-autocomplete-box').on('click', function(){
+    mapApp.newWorkspace = mapApp.workspaceSearchBox.getPlace();   
+    var icon = mapApp.startupIcon;
+    var marker = new google.maps.Marker({
+      map:      mapApp.map,
+      icon:     icon,
+      title:    mapApp.newWorkspace.name,
+      position: mapApp.newWorkspace.geometry.location
+    });
+    // Recenter the map onto the newWorkspace position
+    mapApp.map.setCenter(mapApp.newWorkspace.geometry.location);
+  });
+
+  // All search boxes have the class .search-box 
+  // When you click or focus back into the box, empty it
+  $('.search-box').on('click', function(){
+    $(this).val('');
+  })
+  $('.search-box').on('focus', function(){
     $(this).val('');
   })
 
