@@ -66,3 +66,174 @@ var startup1 = new Startup({
   logo:         "https://nuu-assets.s3.amazonaws.com/uploads/attachment/filename/220/large_SH_2part_Logo_Texture_100_RGB_06_Lo__1_.png"
 });
 startup1.save(confirmStartupSave);
+
+
+var startup1 = new Startup({   
+    name:                   "Secret Escapes",
+    headquarters:           "32-38 Saffron Hill, London, EC1N 8FH",
+    latitude:               "51.520424",
+    longitude:              "-0.106586",
+    founders:               "",
+    sector:                 "Travel",
+    email:                  "support@secretescapes.com",
+    phone:                  "0843 22 77 777",
+    website:                "http://www.secretescapes.com",
+    twitter:                "https://twitter.com/secret_escapes",
+    facebook:               "https://www.facebook.com/SecretEscapes",
+    photo:                  "https://pbs.twimg.com/profile_images/619451267102838784/iqaEBUTm.jpg",
+    logo:                   "https://pbs.twimg.com/profile_images/619451267102838784/iqaEBUTm.jpg"
+});
+startup1.save(confirmStartupSave);
+
+var startup2 = new Startup({   
+    name:                   "Medium Rare Digital",
+    headquarters:           "2 Arlington Avenue, London, N1 7AX",
+    latitude:               "51.536382",
+    longitude:              "-0.090462",
+    founders:               "",
+    sector:                 "Tech",
+    email:                  "info@mediumraredigital.co.uk",
+    phone:                  "",
+    website:                "https://www.mediumraredigital.co.uk",
+    twitter:                "https://twitter.com/DigitalSteak",
+    facebook:               "",
+    photo:                  "https://pbs.twimg.com/profile_images/526426109311586304/8dXLyxFq.jpeg",
+    logo:                   "https://pbs.twimg.com/profile_images/526426109311586304/8dXLyxFq.jpeg"
+});
+startup2.save(confirmStartupSave);
+
+var startup3 = new Startup({   
+    name:                   "The Idle Man",
+    headquarters:           "Universal House, 88-94 Wentworth Street, London, E1 7SA",
+    latitude:               "51.517099",
+    longitude:              "-0.071967",
+    founders:               "",
+    sector:                 "Clothing",
+    email:                  "help@theidleman.com",
+    phone:                  "0333 202 3325",
+    website:                "http://theidleman.com",
+    twitter:                "https://twitter.com/idle",
+    facebook:               "https://www.facebook.com/Idle/",
+    photo:                  "https://pbs.twimg.com/profile_images/634675132582207488/kW7RaSlU.jpg",
+    logo:                   "https://pbs.twimg.com/profile_images/634675132582207488/kW7RaSlU.jpg"
+});
+startup3.save(confirmStartupSave);
+
+var startup4 = new Startup({   
+    name:                   "Startup Manufactory",
+    headquarters:           "32 Aybrook Street, Marylebone, London W1U",
+    latitude:               "51.519578",
+    longitude:              "-0.153228",
+    founders:               "",
+    sector:                 "Tech",
+    email:                  "info@startupmanufactory.com",
+    phone:                  "07958274941",
+    website:                "http://www.startupmanufactory.com",
+    twitter:                "",
+    facebook:               "",
+    photo:                  "http://www.startupmanufactory.com/wp-content/uploads/2014/07/startup-manufactory-logo-250.png",
+    logo:                   "http://www.startupmanufactory.com/wp-content/uploads/2014/07/startup-manufactory-logo-250.png"
+});
+startup4.save(confirmStartupSave);
+
+var startup5 = new Startup({   
+    name:                   "Appear Here",
+    headquarters:           "19 Mandela Street, London Borough of Camden, London NW1 0DU",
+    latitude:               "51.537962",
+    longitude:              "-0.136635",
+    founders:               "",
+    sector:                 "Tech",
+    email:                  "hello@appearhere.co.uk",
+    phone:                  "0203 096 2180",
+    website:                "https://www.appearhere.co.uk",
+    twitter:                "https://twitter.com/appearhere",
+    facebook:               "https://www.facebook.com/AppearHere",
+    photo:                  "https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/527440_536097079742183_1407730544_n.jpg?oh=2052b175a86b8f5c137e58a0046c1c2a&oe=56F670DA",
+    logo:                   "https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/527440_536097079742183_1407730544_n.jpg?oh=2052b175a86b8f5c137e58a0046c1c2a&oe=56F670DA"
+});
+startup5.save(confirmStartupSave);
+
+var startup2 = new Startup({   
+    name:                   "",
+    headquarters:           "",
+    latitude:               "",
+    longitude:              "",
+    founders:               "",
+    sector:                 "",
+    email:                  "",
+    phone:                  "",
+    website:                "",
+    twitter:                "",
+    facebook:               "",
+    photo:                  "",
+    logo:                   ""
+});
+startup2.save(confirmStartupSave);
+
+var startup2 = new Startup({   
+    name:                   "",
+    headquarters:           "",
+    latitude:               "",
+    longitude:              "",
+    founders:               "",
+    sector:                 "",
+    email:                  "",
+    phone:                  "",
+    website:                "",
+    twitter:                "",
+    facebook:               "",
+    photo:                  "",
+    logo:                   ""
+});
+startup2.save(confirmStartupSave);
+
+var startup2 = new Startup({   
+    name:                   "",
+    headquarters:           "",
+    latitude:               "",
+    longitude:              "",
+    founders:               "",
+    sector:                 "",
+    email:                  "",
+    phone:                  "",
+    website:                "",
+    twitter:                "",
+    facebook:               "",
+    photo:                  "",
+    logo:                   ""
+});
+startup2.save(confirmStartupSave);
+
+var startup2 = new Startup({   
+    name:                   "",
+    headquarters:           "",
+    latitude:               "",
+    longitude:              "",
+    founders:               "",
+    sector:                 "",
+    email:                  "",
+    phone:                  "",
+    website:                "",
+    twitter:                "",
+    facebook:               "",
+    photo:                  "",
+    logo:                   ""
+});
+startup2.save(confirmStartupSave);
+
+var startup2 = new Startup({   
+    name:                   "",
+    headquarters:           "",
+    latitude:               "",
+    longitude:              "",
+    founders:               "",
+    sector:                 "",
+    email:                  "",
+    phone:                  "",
+    website:                "",
+    twitter:                "",
+    facebook:               "",
+    photo:                  "",
+    logo:                   ""
+});
+startup2.save(confirmStartupSave);
