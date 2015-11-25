@@ -1,8 +1,57 @@
 $(function(){
   mapApp.init();
+
+  $('#add-place-to-form').on('click', mapApp.captureLatLng);
+  $('#form-new-startup').on('submit', mapApp.postStartup);
 })
 
 var mapApp = mapApp || {};
+
+mapApp.captureLatLng = function(){
+  event.preventDefault();
+  // When we click
+  // console.log(mapApp.newStartup);
+  mapApp.startupLat = mapApp.newStartup.geometry.location.lat();
+  mapApp.startupLng = mapApp.newStartup.geometry.location.lng();
+
+  $("#new-startup-latitude").val(mapApp.startupLat);
+  $("#new-startup-longitude").val(mapApp.startupLng);
+  $("#new-startup-website").val(mapApp.newStartup.website);
+  $("#new-startup-name").val(mapApp.newStartup.name);
+}
+
+mapApp.postStartup = function(){
+  event.preventDefault();
+
+  var data = {
+    name:         $("#new-startup-name").val(),
+    headquarters: $("#new-startup-headquarters").val(),
+    latitude:     mapApp.startupLat,
+    longitude:    mapApp.startupLng,
+    founders:     $("#new-startup-founders").val(),
+    sector:       $("#new-startup-sector").val(),
+    email:        $("#new-startup-email").val(),
+    phone:        $("#new-startup-phone").val(),
+    website:      mapApp.newStartup.website,
+    twitter:      $("#new-startup-twitter").val(),
+    facebook:     $("#new-startup-facebook").val(),
+    photo:        $("#new-startup-photo").val(),
+    logo:         $("#new-startup-logo").val(),
+  };
+
+  $.ajax({
+    method:     'post', //method,
+    url:        'https://localhost:3000/api/startups', //url,
+    data:       data,
+    beforeSend: setRequestHeader
+  })
+  .done(function(data){
+    return showStartup(data);
+  })
+  .fail(function(data){
+    displayErrors(data.responseJSON.message);
+  });
+}
 
 mapApp.init = function(){
 
@@ -36,5 +85,9 @@ mapApp.init = function(){
     console.log(mapApp.newStartup);
   });
 
-  
+
+  $('.places-autocomplete-box').on('click', function(){
+    $(this).val('');
+  })
+
 }
