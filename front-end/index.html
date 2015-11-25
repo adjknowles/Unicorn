@@ -124,12 +124,21 @@
     <section id="new-startup" class="container">
       <h1>Add a new startup</h1>
 
+      <input type="text" id="place-search-box" class="form-control" placeholder="Search for your startup">
+      
+      <button id="add-place-to-form" class="btn waves-effect waves-light">Add this place</button>
+
       <form id="form-new-startup" action="/startup/new" method="post" class="col s12">
-        <label for="new-startup-name"></label>
-        <input type="text" class="validate" name="name" id="new-startup-name" placeholder="Name" >
-        
+
         <label for="new-startup-headquarters"></label>
         <input type="text" class="validate" name="headquarters" id="new-startup-headquarters" placeholder="Headquarters" >
+
+        <input type="text" class="validate" name="latitude" id="new-startup-latitude" placeholder="" >
+
+        <input type="text" class="validate" name="longitude" id="new-startup-longitude" placeholder="" >
+
+        <label for="new-startup-name"></label>
+        <input type="text" class="validate" name="name" id="new-startup-name" placeholder="Name" >
         
         <label for="new-startup-founders"></label>
         <input type="text" class="validate" name="founders" id="new-startup-founders" placeholder="Founders" >
