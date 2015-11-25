@@ -1,8 +1,28 @@
 $(document).ready(function(){
 
   $("form").on("submit", submitForm);
-  
+  $("#logout").on("click", logout);
+  $("#add-startup").on("click", showAddStartup);
+  $("#add-workspace").on("click", showAddWorkspace);
 });
+
+function showAddStartup(){
+  $("section").hide();
+  $("#google-map-container").show();
+  $("#new-startup").show();
+}
+
+function showAddWorkspace(){
+  $("section").hide();
+  $("#google-map-container").show();
+  $("#new-workspace").show();
+}
+
+function logout(){
+  event.preventDefault();
+  removeToken();
+  return loggedOutState();
+}
 
 function submitForm(){
   event.preventDefault();
