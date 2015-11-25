@@ -12,8 +12,8 @@
   <!-- CSS framework's JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
   <!-- Custom JavaScript for the SPA -->
-  <script type="text/javascript" src="./js/maps-and-places.js"></script>
   <script type="text/javascript" src="./js/main.js"></script>
+  <script type="text/javascript" src="./js/maps-and-places.js"></script>
   <!-- Google Font -->
   <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,900' rel='stylesheet' type='text/css'>
 </head>
@@ -23,12 +23,11 @@
       <div class="nav-wrapper container">
         <a href="#" id="brand-logo" class="brand-logo">Unicorn Finder</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#" id="search" class="search-link logged-in">Search</a></li>
-          <li><a href="#" id="register" class="register-link logged-out">Register</a></li>
-          <li><a href="#" id="login" class="login-link logged-out">Login</a></li>
+          <li><a href="#" id="nav-register" class="register-link logged-out">Register</a></li>
+          <li><a href="#" id="nav-login" class="login-link logged-out">Login</a></li>
           <li><a href="#" id="add-startup" class="add-new-startup-link logged-in">Add new startup</a></li>
           <li><a href="#" id="add-workspace" class="add-new-workspace-link logged-in">Add new workspace</a></li>
-          <li><a href="#" id="logout" class="logout-link logged-in">Logout</a></li>
+          <li><a href="#" id="nav-logout" class="logout-link logged-in">Logout</a></li>
         </ul>
       </div>
     </nav>
@@ -69,8 +68,7 @@
     <section id="google-map-container" class="container">
       <div class="row">
         <div id="map-container" class="col s8">
-          <div id="googleMap">
-          </div>
+          <div id="googleMap"></div>
           <input type="text" id="searchbox" class="form-control" placeholder="Search">
         </div>
         <div id="directions-container" class="col s4">

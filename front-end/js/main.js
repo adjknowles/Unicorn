@@ -1,13 +1,33 @@
 $(document).ready(function(){
-
   $("form").on("submit", submitForm);
-  $("#logout").on("click", logout);
+  $("#nav-login").on("click", login);
+  $("#nav-logout").on("click", logout);
+  $("#nav-register").on("click", register);
   $("#add-startup").on("click", showAddStartup);
   $("#add-workspace").on("click", showAddWorkspace);
+  hideErrors();
+  checkLoginState();
 });
 
+function login(){
+  $("section").hide();
+  $("#google-map-container").show();
+  $("#login").show();
+}
+
+function logout(){
+  event.preventDefault();
+  removeToken();
+  return loggedOutState();
+}
+
+function register(){
+  $("section").hide();
+  $("#google-map-container").show();
+  $("#register").show();
+}
+
 function showAddStartup(){
-  alert("hi");
   $("section").hide();
   $("#google-map-container").show();
   $("#new-startup").show();
@@ -17,12 +37,6 @@ function showAddWorkspace(){
   $("section").hide();
   $("#google-map-container").show();
   $("#new-workspace").show();
-}
-
-function logout(){
-  event.preventDefault();
-  removeToken();
-  return loggedOutState();
 }
 
 function submitForm(){
@@ -61,6 +75,10 @@ function getToken() {
   return localStorage.getItem("token");
 }
 
+function removeToken() {
+  return localStorage.clear();
+}
+
 function authenticationSuccessful(data) {
   if (data.token) setToken(data.token);
   return checkLoginState();
@@ -84,8 +102,10 @@ function loggedInState(){
 }
 
 function loggedOutState(){
-  $("section, .logged-in").hide();
-  $("#register, .logged-out").show();
+  $(".logged-in").hide();
+  $(".logged-out").show();
+  $("section").hide();
+  $("#google-map-container").show();
   return hideResults();
 }
 
@@ -124,4 +144,8 @@ function hideResults(){
 
 function displayErrors(data){
   return $(".alert").text(data).removeClass("hide").addClass("show");
+}
+
+function hideErrors(){
+  return $(".alert").removeClass("show").addClass("hide");
 }
