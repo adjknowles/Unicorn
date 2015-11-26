@@ -10222,6 +10222,12 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .main-header {
   background-color: #DC1378; }
 
+nav.main-header a#brand-logo {
+  height: 64px; }
+  nav.main-header a#brand-logo img {
+    max-height: 100%;
+    max-width: 100%; }
+
 #map-container {
   background-size: cover !important;
   background-position: center;

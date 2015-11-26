@@ -77,6 +77,16 @@ $main-header-bg-color:    $pink !default;
   background-color: $main-header-bg-color
 }
 
+nav.main-header {
+  a#brand-logo {
+    height: 64px;
+    img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
 #map-container {
   background-size: cover !important;
   background-position: center;
