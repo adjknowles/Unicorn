@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $("form").on("submit", submitForm);
-  $(".login-link, .register-link, .addstartup-link, .addworkspace-link").on("click", showPage)
+  $(".login-link, .register-link, .about-link, .addstartup-link, .addworkspace-link").on("click", showPage)
   $(".map-link").on("click", mapPage);
   $(".logout-link").on("click", logout);
   // $("#nav-login").on("click", login);
