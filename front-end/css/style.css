@@ -10272,6 +10272,13 @@ body {
   body input#main-search-box {
     margin: 20px 0;
     border-bottom: 2px solid #00bc66; }
+  body main section#intro {
+    width: 100%;
+    height: 100vh; }
+    body main section#intro p {
+      font-size: 2em; }
+  body main section#about p {
+    font-size: 2em; }
   body main section#map {
     width: 100%;
     height: 100%;
@@ -10283,6 +10290,13 @@ body {
       min-height: 500px;
       min-width: 500px;
       position: relative; }
+
+footer ul {
+  list-style-type: none; }
+  footer ul li {
+    display: inline; }
+    footer ul li div {
+      display: inline-block; }
 
 input.search-box {
   font-size: 1.8em; }

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   $("#intro").on("click", closeIntro);
   $("form").on("submit", submitForm);
   $(".login-link, .register-link, .about-link, .addstartup-link, .addworkspace-link").on("click", showPage)
