@@ -1,6 +1,7 @@
 $(function(){
   mapApp.init();
-  mapApp.addMarkers();
+  mapApp.addMarkers('startups');
+  mapApp.addMarkers('workspaces');
   $('.add-place-to-form').on('click', mapApp.captureLatLng);
   $('#form-new-startup').on('submit', mapApp.postStartup);
 })
@@ -23,14 +24,66 @@ mapApp.captureLatLng = function(){
   }
 }
 
-mapApp.addMarkers = function(){
-  ajaxRequest("get", "http://localhost:3000/api/workspaces", null, function(data){
+mapApp.addMarkers = function(markerType){
+  ajaxRequest("get", "http://localhost:3000/api/" + markerType, null, function(data){
+    console.log(data);
+    // console.log(data["workspace"]);
+    console.log(markerType);
     mapApp.clearMarkers();
-    $.each(data.workspaces, function(index, marker){
+    $.each(data[markerType], function(index, marker){
       console.log(marker)
-      mapApp.addMarkerWithTimeout(marker, index * 200);
+      mapApp.addMarkerWithTimeout(marker, markerType , index * 200);
+      
+      // var phoneHTML = '';
+      // if(marker.telephone){
+      //   telephoneHTML = '';
+      // }
+      var twitterHTML = '';
+      if(marker.twitter) {
+        twitterHTML = '<a href="' + marker.twitter + '" class="btn">Twitter</a>';
+      }
+      // var addressHTML = '';
+      // if(marker.headquarters){
+      //   addressHTML = '<a href="https://www.google.com/maps/place/' + marker.headquarters + '" class="btn">' + marker.headquarters + '</a>';
+      // }
+      // if(marker.address) {
+      //   addressHTML = '<a href="https://www.google.com/maps/place/' + marker.address + '" class="btn">' + marker.address + '</a>';
+      // }
+      var dataHTML   = '';
+      var singleHTML = '';
+      var itemsForShow = ['website', 'email', 'address', 'telephone', 'contactName', 'twitter', 'facebook', 'headquarters', 'phone'];
 
-      $("#results").append("<li><h1>"+marker.name+"</h1></li>");
+      $.each(marker, function(key, value) {
+        if(itemsForShow.indexOf(key) > -1){
+          if(value){
+            singleHTML = '<p class="card-text">' +
+            '<img src="./images/'+ key +'.png" class="small-icon" aria-label="' + key + 'icon">' + value + 
+            '</p>';
+            dataHTML   = dataHTML + singleHTML;
+          }  
+        }
+      });
+      
+      var markerHTML = 
+'<li id="' + marker._id + '">' +      
+  '<div class="card">' + 
+    '<div class="card-content">' + 
+      '<p class="card-title"><img src="'+ mapApp.icons[markerType] +'.png" class="small-icon">' + marker.name + '</p>' +   
+      dataHTML + 
+    '</div>' + 
+    '<div class="card-action activator">' + 
+      '<p><a href="' + marker.website + '" class="btn">Website</a>' + 
+      twitterHTML + 
+      '<i class="medium mdi-navigation-expand-less right" aria-label="reveal twitter stream" ></i></p>' +
+    '</div>' + 
+    '<div class="card-reveal">' + 
+      '<span class="card-title">' + marker.name + '\'s Twitter feed<i class="medium mdi-navigation-close right" aria-label="close twitter stream"></i></span>' + 
+      '<p>Here are tweets from ' + marker.name + ' account!</p>' + 
+    '</div>' + 
+  '</div>' + 
+'</li>';
+
+      $("#results").append(markerHTML);
     })
   });
 }
@@ -68,8 +121,8 @@ mapApp.init = function(){
 
   // Icons for markers
   mapApp.icons = {
-    workspace: 'http://i.imgur.com/J6p1ops.png',
-    startup: 'http://i.imgur.com/zSIbR3c.jpg'
+    workspaces: 'http://i.imgur.com/J6p1ops.png',
+    startups:   'http://i.imgur.com/zSIbR3c.jpg'
   }
 
   mapApp.setupAutocompleteFields()
@@ -108,6 +161,17 @@ mapApp.setupAutocompleteFields = function(){
         title:     mapApp.place.name,
         position:  mapApp.place.geometry.location
       });
+      var contentHTML = 
+      '<ul>' + 
+        '<li class="infowindowtitle">'+ marker.title +'</li>' + 
+      '</ul>';
+
+      var infoWindow = new google.maps.InfoWindow({
+        content: contentHTML
+      });
+      marker.addListener('click', function(){
+        infoWindow.open(mapApp.map, marker);
+      });
 
       // Recenter the map onto the newStartup position
       mapApp.map.setCenter(mapApp.place.geometry.location);
@@ -122,15 +186,32 @@ mapApp.clearMarkers = function() {
   mapApp.markers = [];
 }
 
-mapApp.addMarkerWithTimeout = function(marker, timeout) {
+mapApp.addInfoWindowToMarker = function(marker, id){
+  var contentHTML = 
+  '<ul>' + 
+    '<li class="infowindowtitle">'+ marker.title +'</li>' +
+    '<li class="infowindowlink"><a href="#' + id + '">For further information, please click here</a></li>'+
+  '</ul>';
+
+  var infoWindow = new google.maps.InfoWindow({
+    content: contentHTML
+  });
+  marker.addListener('click', function(){
+    infoWindow.open(mapApp.map, marker);
+  });
+  return marker;
+}
+
+mapApp.addMarkerWithTimeout = function(marker, markerType, timeout) {
   window.setTimeout(function() {
     var position = new google.maps.LatLng(marker.latitude, marker.longitude);
-
-    mapApp.markers.push(new google.maps.Marker({
-      position: position,
-      map: mapApp.map,
-      icon: mapApp.icons["workspace"],
-      animation: google.maps.Animation.DROP
-    }));
-  }, timeout);
+    var gmMarker = new google.maps.Marker({
+      map:       mapApp.map,
+      icon:      mapApp.icons[markerType],
+      animation: google.maps.Animation.DROP,
+      title:     marker.name,
+      position:  position
+    });
+    mapApp.markers.push(mapApp.addInfoWindowToMarker(gmMarker, marker._id), timeout);
+  });
 }
