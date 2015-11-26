@@ -4,7 +4,7 @@ $(function(){
   mapApp.addMarkers('workspaces');
   $('.add-place-to-form').on('click', mapApp.captureLatLng);
   $('#form-new-startup').on('submit', mapApp.postStartup);
-})
+});
 
 var mapApp = mapApp || {};
 
@@ -29,7 +29,7 @@ mapApp.addMarkers = function(markerType){
     console.log(data);
     // console.log(data["workspace"]);
     console.log(markerType);
-    mapApp.clearMarkers();
+    // mapApp.clearMarkers();
     $.each(data[markerType], function(index, marker){
       console.log(marker)
       mapApp.addMarkerWithTimeout(marker, markerType , index * 200);
@@ -230,8 +230,8 @@ mapApp.init = function(){
 
   // Icons for markers
   mapApp.icons = {
-    workspaces: 'http://i.imgur.com/tKSZiPA.png',
-    startups:   'http://i.imgur.com/VNfevVP.png'
+    workspaces: 'http://i.imgur.com/1VZp3yo.png',
+    startups:   'http://i.imgur.com/IAWepkj.png'
   }
 
   mapApp.setupAutocompleteFields()
