@@ -217,8 +217,16 @@ body {
 footer {
   ul {
     list-style-type: none;
+    display: inline;
+    position: relative;
+    margin-left: -80px;
     li {
       display: inline;
+      .fb-share-button {
+        position: absolute;
+        margin-left: 5px;
+        bottom: 3px; 
+      }
       div {
         display: inline-block;
       }

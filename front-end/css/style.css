@@ -10304,9 +10304,16 @@ body {
       position: relative; }
 
 footer ul {
-  list-style-type: none; }
+  list-style-type: none;
+  display: inline;
+  position: relative;
+  margin-left: -80px; }
   footer ul li {
     display: inline; }
+    footer ul li .fb-share-button {
+      position: absolute;
+      margin-left: 5px;
+      bottom: 3px; }
     footer ul li div {
       display: inline-block; }
 
