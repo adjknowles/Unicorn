@@ -8,7 +8,7 @@ $primary-color-light:     lighten($primary-color, 15%) !default;
 $primary-color-dark:      darken($primary-color, 15%) !default;
 $secondary-color:         $pink !default;
 $link-color:              color("light-blue", "darken-1") !default;
-$button-color:            $secondary-color !default;
+$button-color:            $primary-color !default;
 $main-header-bg-color:    $blue !default;
 $footer-bg-color:         $blue !default;
 
@@ -18,7 +18,7 @@ $footer-bg-color:         $blue !default;
 // $card-link-color: color("orange", "accent-2") !default;
 // $card-link-color-light: lighten($card-link-color, 20%) !default;
 
-$card-bg-color:           $primary-color; //color("purple", "lighten-1") !default;
+$card-bg-color:           lighten($black, 35%); //color("purple", "lighten-1") !default;
 $card-action-bg-color:    $secondary-color;//color("purple", "base") !default;
 $card-reveal-bg-color:    white !default; //doesn't work! overwritten by $card-bg-color
 $card-link-color:         #FFF !default; //'website text color'
@@ -86,6 +86,16 @@ $card-font-weight-main:   300 !default;
 }
 
 nav.main-header {
+  a#brand-logo {
+    height: 64px;
+    img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+footer {
   a#brand-logo {
     height: 64px;
     img {

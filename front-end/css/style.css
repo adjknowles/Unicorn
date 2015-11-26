@@ -7379,12 +7379,12 @@ small {
   padding: 20px;
   margin: 0.5rem 0 1rem 0;
   border-radius: 2px;
-  background-color: #13B9DF; }
+  background-color: #595959; }
 
 .card {
   position: relative;
   margin: 0.5rem 0 1rem 0;
-  background-color: #13B9DF;
+  background-color: #595959;
   transition: box-shadow .25s;
   border-radius: 2px; }
   .card .card-title {
@@ -7425,7 +7425,7 @@ small {
       bottom: 0;
       width: 100%; }
     .card .card-image .card-title {
-      color: #13B9DF;
+      color: #595959;
       position: absolute;
       bottom: 0;
       left: 0;
@@ -7455,7 +7455,7 @@ small {
   .card .card-reveal {
     padding: 20px;
     position: absolute;
-    background-color: #13B9DF;
+    background-color: #595959;
     width: 100%;
     overflow-y: auto;
     top: 100%;
@@ -7665,7 +7665,7 @@ small {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #DC1378;
+  background-color: #13B9DF;
   text-align: center;
   letter-spacing: .5px;
   -webkit-transition: 0.2s ease-out;
@@ -7675,7 +7675,7 @@ small {
   transition: 0.2s ease-out;
   cursor: pointer; }
   .btn:hover, .btn-large:hover {
-    background-color: #eb1d85; }
+    background-color: #20c6ec; }
 
 .btn-floating {
   display: inline-block;
@@ -7687,7 +7687,7 @@ small {
   height: 37px;
   line-height: 37px;
   padding: 0;
-  background-color: #DC1378;
+  background-color: #13B9DF;
   border-radius: 50%;
   transition: .3s;
   cursor: pointer;
@@ -8115,7 +8115,7 @@ select:focus {
 
 button:focus {
   outline: none;
-  background-color: #eb1882; }
+  background-color: #1bc5ec; }
 
 label {
   font-size: 0.8rem;
@@ -10226,6 +10226,12 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 nav.main-header a#brand-logo {
   height: 64px; }
   nav.main-header a#brand-logo img {
+    max-height: 100%;
+    max-width: 100%; }
+
+footer a#brand-logo {
+  height: 64px; }
+  footer a#brand-logo img {
     max-height: 100%;
     max-width: 100%; }
 
