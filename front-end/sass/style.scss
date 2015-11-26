@@ -1,16 +1,49 @@
-@import '../materialize-src/sass/materialize';
+@import '../materialize-src/sass/components/_color';
 @import '_variables';
 
-.btn {
-  background-color: $blue;
+/* Overriding materialize's variables */
+
+$primary-color:           $pink !default;
+$primary-color-light:     lighten($primary-color, 15%) !default;
+$primary-color-dark:      darken($primary-color, 15%) !default;
+$secondary-color:         $blue !default;
+$link-color:              color("light-blue", "darken-1") !default;
+$button-color:            $secondary-color !default;
+
+$footer-bg-color:         $pink !default;
+
+$card-bg-color:           color("purple", "lighten-1") !default;
+$card-link-color:         color("purple", "accent-2") !default;
+
+$card-content-text-color: color("purple", "lighten-4") !default;
+$card-action-bg-color:    color("purple", "base") !default;
+
+$main-header-bg-color:    $pink !default;
+
+.card {
+  .card-content {
+    color:            $card-content-text-color;
+  }
+  .card-action {
+    background-color: $card-action-bg-color;
+  }
+  .card-title {
+    font-size:        24px;
+    font-weight:      900; //300;
+  }
+  button {
+    background-color: inherit;
+  }
+  a {
+    /* color: #fff; */
+  }
 }
 
-.btn:hover {
-  background-color: $pink;
-}
+/* End of overriding materialize's variables */
+@import '../materialize-src/sass/materialize';
 
 .main-header {
-  background-color: $pink;
+  background-color: $main-header-bg-color
 }
 
 #map-container {
@@ -19,38 +52,13 @@
   text-align: center;
 }
 
-footer {
-  background-color: $pink !important;
-}
-
 body{
   font-family: 'Lato', sans-serif;
   font-size: 100%; 
   header {
-    nav.main-header {
-      div {
-        a#brand-logo.brand-logo {
-
-        }
-        ul {
-          li {
-            a {
-            }
-          }
-        }
-      }
-    }
   }
   main {
     
-    section {
-      h1 {
-
-      }
-      form {
-
-      }
-    }
     section#map {
       width: 100%;
       height: 100%;
@@ -91,17 +99,4 @@ body{
     }
   }
 
-  footer {
-    div.container {
-      div.row {       
-        div {
-          h5 {
-          }
-          p {
-
-          }
-        }
-      }
-    }
-  }
 }
