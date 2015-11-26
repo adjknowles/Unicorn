@@ -51,7 +51,7 @@ mapApp.addMarkers = function(markerType){
       // }
       var dataHTML   = '';
       var singleHTML = '';
-      var itemsForShow = ['website', 'email', 'address', 'telephone', 'contactName', 'twitter', 'facebook', 'headquarters', 'phone'];
+      var itemsForShow = ['website', 'email', 'address', 'telephone', 'contactName', 'twitter', 'facebook', 'headquarters', 'phone', photo];
 
       $.each(marker, function(key, value) {
         if(itemsForShow.indexOf(key) > -1){
@@ -258,7 +258,7 @@ mapApp.init = function(){
 }
 
 mapApp.setupAutocompleteFields = function(){
-  var fields = ["startup-search-box", "workspace-search-box"];
+  var fields = ["startup-search-box", "workspace-search-box", "main-search-box"];
 
   $.each(fields, function(index, field) {
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById(field));
@@ -268,7 +268,10 @@ mapApp.setupAutocompleteFields = function(){
       mapApp.place = autocomplete.getPlace();
     
       var icon = mapApp.icons[field.split("-")[0]+"s"];
-
+      if(icon !== "main"){
+        mapApp.map.setCenter(mapApp.place.geometry.location);
+        return;
+      }
       var marker = new google.maps.Marker({
         map:       mapApp.map,
         icon:      icon,
@@ -288,7 +291,7 @@ mapApp.setupAutocompleteFields = function(){
         infoWindow.open(mapApp.map, marker);
       });
 
-      // Recenter the map onto the newStartup position
+      // Recenter the map onto the new place's position
       mapApp.map.setCenter(mapApp.place.geometry.location);
     });
   })
