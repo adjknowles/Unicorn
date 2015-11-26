@@ -32,8 +32,8 @@ $card-font-weight-button: 400 !default;
 $card-font-size-main:     1.2em !default;
 $card-font-weight-main:   300 !default;
 
-
-
+/* placeholder font color */
+$input-border-color: darken($blue, 30%);
 
 .card {
   color:              #FFF;
@@ -52,6 +52,10 @@ $card-font-weight-main:   300 !default;
     .card-text {
       font-size:      $card-font-size-main; 
       font-weight:    $card-font-weight-main;
+      .small-icon-container {
+        display: inline-block;
+        width:   30px;
+      }
     }
   }
   .card-action {
@@ -80,6 +84,8 @@ $card-font-weight-main:   300 !default;
 
 /* End of overriding materialize's variables */
 @import '../materialize-src/sass/materialize';
+
+
 
 .main-header {
   background-color: $main-header-bg-color
@@ -158,4 +164,8 @@ body{
     }
   }
 
+}
+
+input.search-box {
+  font-size: 1.8em;
 }

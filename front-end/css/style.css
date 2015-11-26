@@ -1620,6 +1620,7 @@
 
 /* Overriding materialize's variables */
 /* cards */
+/* placeholder font color */
 .card {
   color: #FFF; }
   .card .small-icon {
@@ -1633,6 +1634,9 @@
   .card .card-content .card-text {
     font-size: 1.2em;
     font-weight: 300; }
+    .card .card-content .card-text .small-icon-container {
+      display: inline-block;
+      width: 30px; }
   .card .card-action {
     background-color: #DC1378; }
     .card .card-action a {
@@ -8119,24 +8123,24 @@ button:focus {
 
 label {
   font-size: 0.8rem;
-  color: #9e9e9e; }
+  color: #074452; }
 
 /***************************
    Text Inputs + Textarea
 ****************************/
 ::-webkit-input-placeholder {
-  color: #d1d1d1; }
+  color: #0f92b0; }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: #d1d1d1; }
+  color: #0f92b0; }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #d1d1d1; }
+  color: #0f92b0; }
 
 :-ms-input-placeholder {
-  color: #d1d1d1; }
+  color: #0f92b0; }
 
 input[type=text],
 input[type=password],
@@ -8151,7 +8155,7 @@ input[type=search],
 textarea.materialize-textarea {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #9e9e9e;
+  border-bottom: 1px solid #074452;
   border-radius: 0;
   outline: none;
   height: 3rem;
@@ -8350,7 +8354,7 @@ textarea.materialize-textarea {
   position: relative;
   margin-top: 1rem; }
   .input-field label {
-    color: #9e9e9e;
+    color: #074452;
     position: absolute;
     top: 0.8rem;
     left: 0.75rem;
@@ -8804,7 +8808,7 @@ input[type=checkbox]:not(:disabled) ~ .lever:active:after {
     cursor: pointer;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #9e9e9e;
+    border-bottom: 1px solid #074452;
     outline: none;
     height: 3rem;
     line-height: 3rem;
@@ -10254,5 +10258,8 @@ body {
       min-height: 500px;
       min-width: 500px;
       position: relative; }
+
+input.search-box {
+  font-size: 1.8em; }
 
 /*# sourceMappingURL=style.css.map */
