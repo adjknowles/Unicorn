@@ -57,7 +57,9 @@ mapApp.addMarkers = function(markerType){
         if(itemsForShow.indexOf(key) > -1){
           if(value){
             singleHTML = '<p class="card-text">' +
-            '<img src="./images/'+ key +'.png" class="small-icon" aria-label="' + key + 'icon">' + value + 
+            '<div class="small-icon-container">' + 
+              '<img src="./images/'+ key +'.png" class="small-icon" aria-label="' + key + 'icon">' + value + 
+            '</div>' +
             '</p>';
             dataHTML   = dataHTML + singleHTML;
           }  
@@ -68,7 +70,7 @@ mapApp.addMarkers = function(markerType){
 '<li id="' + marker._id + '">' +      
   '<div class="card">' + 
     '<div class="card-content">' + 
-      '<p class="card-title"><img src="'+ mapApp.icons[markerType] +'.png" class="small-icon">' + marker.name + '</p>' +   
+      '<p class="card-title"><div class="main-icon-container"><img src="'+ mapApp.icons[markerType] + '" class="small-icon"></div>' + marker.name + '</p>' +   
       dataHTML + 
     '</div>' + 
     '<div class="card-action activator">' + 
@@ -221,10 +223,11 @@ mapApp.init = function(){
   mapApp.canvas = document.getElementById('googleMap');
   mapApp.center = new google.maps.LatLng(51.507904, -0.127466)
   mapApp.mapOptions = {
-    zoom: 13,
-    styles: mapStyle,
-    center: mapApp.center,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
+    zoom:        13,
+    styles:      mapStyle,
+    scrollwheel: false,
+    center:      mapApp.center,
+    mapTypeId:   google.maps.MapTypeId.ROADMAP
   };
 
   this.map = new google.maps.Map(mapApp.canvas, mapApp.mapOptions);
@@ -233,8 +236,8 @@ mapApp.init = function(){
 
   // Icons for markers
   mapApp.icons = {
-    workspaces: 'http://i.imgur.com/J6p1ops.png',
-    startups:   'http://i.imgur.com/zSIbR3c.jpg'
+    workspaces: './images/shelter.png',//'http://i.imgur.com/J6p1ops.png',
+    startups:   './images/unicorn.jpg'//'http://i.imgur.com/zSIbR3c.jpg'
   }
 
   mapApp.setupAutocompleteFields()
