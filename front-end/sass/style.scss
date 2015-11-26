@@ -3,14 +3,14 @@
 
 /* Overriding materialize's variables */
 
-$primary-color:           $pink !default;
+$primary-color:           $blue !default;
 $primary-color-light:     lighten($primary-color, 15%) !default;
 $primary-color-dark:      darken($primary-color, 15%) !default;
-$secondary-color:         $blue !default;
+$secondary-color:         $pink !default;
 $link-color:              color("light-blue", "darken-1") !default;
 $button-color:            $secondary-color !default;
-
-$footer-bg-color:         $pink !default;
+$main-header-bg-color:    $blue !default;
+$footer-bg-color:         $blue !default;
 
 $card-bg-color:           color("purple", "lighten-1") !default;
 $card-reveal-bg-color:    #FFF !default;
@@ -25,7 +25,7 @@ $card-font-weight-main:   300 !default;
 $card-content-text-color: color("purple", "lighten-4") !default;
 $card-action-bg-color:    color("purple", "base") !default;
 
-$main-header-bg-color:    $pink !default;
+
 
 .card {
   color:              #FFF;
@@ -83,6 +83,10 @@ nav.main-header {
     img {
       max-height: 100%;
       max-width: 100%;
+    }
+    li:hover {
+      text-decoration: underline;
+      color: green;
     }
   }
 }
