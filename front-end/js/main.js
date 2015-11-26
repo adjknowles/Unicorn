@@ -1,9 +1,9 @@
 $(document).ready(function(){
   $("form").on("submit", submitForm);
-  $(".login-link, .register-link, .map-link, .addstartup-link, .addworkspace-link").on("click", showPage)
-
-  // $("#nav-login").on("click", login);
+  $(".login-link, .register-link, .about-link, .addstartup-link, .addworkspace-link").on("click", showPage)
+  $(".map-link").on("click", mapPage);
   $(".logout-link").on("click", logout);
+  // $("#nav-login").on("click", login);
   // $("#nav-register").on("click", register);
   // $("#addstartup").on("click", showAddStartup);
   // $("#addworkspace").on("click", showAddWorkspace);
@@ -11,6 +11,11 @@ $(document).ready(function(){
   checkLoginState();
 });
 
+function mapPage(){
+  event.preventDefault();
+  $("section").hide();
+  return $("#map").show();
+}
 function showPage(){
   event.preventDefault();
   var linkClass = $(this).attr("class").split("-")[0];
