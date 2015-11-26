@@ -1619,6 +1619,7 @@
   color: transparent !important; }
 
 /* Overriding materialize's variables */
+/* cards */
 .card {
   color: #FFF; }
   .card .small-icon {
@@ -1633,12 +1634,12 @@
     font-size: 1.2em;
     font-weight: 300; }
   .card .card-action {
-    background-color: #9c27b0; }
+    background-color: #DC1378; }
     .card .card-action a {
       font-size: 1.5em;
       font-weight: 400; }
   .card .card-reveal {
-    background-color: #FFF; }
+    background-color: white; }
     .card .card-reveal .card-title {
       font-size: 2.5em;
       font-weight: 400; }
@@ -7378,12 +7379,12 @@ small {
   padding: 20px;
   margin: 0.5rem 0 1rem 0;
   border-radius: 2px;
-  background-color: #ab47bc; }
+  background-color: #13B9DF; }
 
 .card {
   position: relative;
   margin: 0.5rem 0 1rem 0;
-  background-color: #ab47bc;
+  background-color: #13B9DF;
   transition: box-shadow .25s;
   border-radius: 2px; }
   .card .card-title {
@@ -7424,7 +7425,7 @@ small {
       bottom: 0;
       width: 100%; }
     .card .card-image .card-title {
-      color: #ab47bc;
+      color: #13B9DF;
       position: absolute;
       bottom: 0;
       left: 0;
@@ -7454,7 +7455,7 @@ small {
   .card .card-reveal {
     padding: 20px;
     position: absolute;
-    background-color: #ab47bc;
+    background-color: #13B9DF;
     width: 100%;
     overflow-y: auto;
     top: 100%;
@@ -10227,9 +10228,6 @@ nav.main-header a#brand-logo {
   nav.main-header a#brand-logo img {
     max-height: 100%;
     max-width: 100%; }
-  nav.main-header a#brand-logo li:hover {
-    text-decoration: underline;
-    color: green; }
 
 #map-container {
   background-size: cover !important;

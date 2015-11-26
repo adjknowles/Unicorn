@@ -12,9 +12,19 @@ $button-color:            $secondary-color !default;
 $main-header-bg-color:    $blue !default;
 $footer-bg-color:         $blue !default;
 
-$card-bg-color:           color("purple", "lighten-1") !default;
-$card-reveal-bg-color:    #FFF !default;
-$card-link-color:         #FFF !default;
+/* cards */
+// $card-padding: 20px !default;
+// $card-bg-color: #fff !default;
+// $card-link-color: color("orange", "accent-2") !default;
+// $card-link-color-light: lighten($card-link-color, 20%) !default;
+
+$card-bg-color:           $primary-color; //color("purple", "lighten-1") !default;
+$card-action-bg-color:    $secondary-color;//color("purple", "base") !default;
+$card-reveal-bg-color:    white !default; //doesn't work! overwritten by $card-bg-color
+$card-link-color:         #FFF !default; //'website text color'
+$card-content-text-color: color("purple", "lighten-4") !default; //'main text'
+
+
 $card-font-size-title:    2.5em !default;
 $card-font-weight-title:  400 !default;
 $card-font-size-button:   1.5em !default;
@@ -22,8 +32,6 @@ $card-font-weight-button: 400 !default;
 $card-font-size-main:     1.2em !default;
 $card-font-weight-main:   300 !default;
 
-$card-content-text-color: color("purple", "lighten-4") !default;
-$card-action-bg-color:    color("purple", "base") !default;
 
 
 
@@ -62,7 +70,7 @@ $card-action-bg-color:    color("purple", "base") !default;
     }
   }
   button, .btn {
-    background-color: $pink;
+    background-color: $secondary-color;
 
   }
   a {
@@ -83,10 +91,6 @@ nav.main-header {
     img {
       max-height: 100%;
       max-width: 100%;
-    }
-    li:hover {
-      text-decoration: underline;
-      color: green;
     }
   }
 }
