@@ -53,7 +53,9 @@ mapApp.addMarkers = function(markerType){
       var singleHTML = '';
       $.each(marker, function(key, value) {
         if(value){
-          singleHTML = '<p class="card-text">' +key + ': ' + value + '</p>'
+          singleHTML = '<p class="card-text">' +
+          '<img src="assets/images/'+ key +'">' + key + ': ' + value + 
+          '</p>';
           dataHTML   = dataHTML + singleHTML;
         }
       });
@@ -70,7 +72,7 @@ mapApp.addMarkers = function(markerType){
     '<div class="card-action activator">' + 
       '<p><a href="' + marker.website + '" class="btn">Website</a>' + 
       twitterHTML + 
-      '<button class="btn-floating btn-large right"><i class="material-icons">arrow_upward</i></button></p>' +
+      '<button class="btn-floating btn-large right"><img src="./public/assets/images/arrow_upward"></button></p>' +
     '</div>' + 
     '<div class="card-reveal">' + 
       '<span class="card-title">' + marker.name + '\'s Twitter feed<button class="btn-floating btn-large right"><i class="material-icons">close</i></button></span>' + 
@@ -157,6 +159,17 @@ mapApp.setupAutocompleteFields = function(){
         title:     mapApp.place.name,
         position:  mapApp.place.geometry.location
       });
+      var contentHTML = 
+      '<ul>' + 
+        '<li class="infowindowtitle">'+ marker.title +'</li>' + 
+      '</ul>';
+
+      var infoWindow = new google.maps.InfoWindow({
+        content: contentHTML
+      });
+      marker.addListener('click', function(){
+        infoWindow.open(mapApp.map, marker);
+      });
 
       // Recenter the map onto the newStartup position
       mapApp.map.setCenter(mapApp.place.geometry.location);
@@ -171,16 +184,31 @@ mapApp.clearMarkers = function() {
   mapApp.markers = [];
 }
 
+mapApp.addInfoWindowToMarker = function(marker){
+  var contentHTML = 
+  '<ul>' + 
+    '<li class="infowindowtitle">'+ marker.title +'</li>' + 
+  '</ul>';
+
+  var infoWindow = new google.maps.InfoWindow({
+    content: contentHTML
+  });
+  marker.addListener('click', function(){
+    infoWindow.open(mapApp.map, marker);
+  });
+  return marker;
+}
+
 mapApp.addMarkerWithTimeout = function(marker, markerType, timeout) {
   window.setTimeout(function() {
     var position = new google.maps.LatLng(marker.latitude, marker.longitude);
-
-    mapApp.markers.push(new google.maps.Marker({
+    var gmMarker = new google.maps.Marker({
       map:       mapApp.map,
       icon:      mapApp.icons[markerType],
       animation: google.maps.Animation.DROP,
       title:     marker.name,
       position:  position
-    }));
-  }, timeout);
+    });
+    mapApp.markers.push(mapApp.addInfoWindowToMarker(gmMarker), timeout);
+  });
 }
