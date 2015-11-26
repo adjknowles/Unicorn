@@ -30,7 +30,27 @@ mapApp.addMarkers = function(){
       console.log(marker)
       mapApp.addMarkerWithTimeout(marker, index * 200);
 
-      $("#results").append("<li><h1>"+marker.name+"</h1></li>");
+      // var markerHTML = "<li><h1>"+marker.name+"</h1></li>";
+      var markerHTML = 
+'<li>' +       
+  '<div class="card">' + 
+    '<div class="card-content activator purple lighten-3 purple-text text-darken-4">' + 
+      '<span class="card-title">' + marker.name + '</span>' + 
+      '<p><a href="#">' + marker.website + '</a><i class="material-icons right">arrow_upward</i></p>' + 
+    '</div>' + 
+    '<div class="card-action purple">' + 
+      '<a href="#" class="">This is a link</a>' + 
+      '<a href="#" class="">This is a link</a>' + 
+    '</div>' + 
+    '<div class="card-reveal purple-text text-darken-4">' + 
+      '<span class="card-title">' + marker.name + 's Twitter feed<i class="material-icons right">close</i></span>' + 
+      '<p>Here are tweets from ' + marker.name + ' account!</p>' + 
+      '<p><a href="'+ marker.twitter + '">Twitter</a></p>' + 
+    '</div>' + 
+  '</div>' + 
+'</li>';
+
+      $("#results").append(markerHTML);
     })
   });
 }
