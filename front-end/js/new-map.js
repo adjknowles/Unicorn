@@ -54,7 +54,7 @@ mapApp.addMarkers = function(markerType){
       $.each(marker, function(key, value) {
         if(value){
           singleHTML = '<p class="card-text">' +
-          '<img src="./images/'+ key +'">' + key + ': ' + value + 
+          '<img src="./images/'+ key +'.png" class="small-icon" aria-label="' + key + 'icon">' + key + ': ' + value + 
           '</p>';
           dataHTML   = dataHTML + singleHTML;
         }
@@ -64,18 +64,16 @@ mapApp.addMarkers = function(markerType){
 '<li id="' + marker._id + '">' +      
   '<div class="card">' + 
     '<div class="card-content">' + 
-      '<p class="card-title"><img src="'+ mapApp.icons[markerType] +'">' + marker.name + '</p>' +   
-      dataHTML +
-      // '<p class="card-text">' + marker.telephone + '</p>' +  
-      // '<p class="card-text">' + addressHTML + '</p>' + 
+      '<p class="card-title"><img src="'+ mapApp.icons[markerType] +'.png" class="small-icon">' + marker.name + '</p>' +   
+      dataHTML + 
     '</div>' + 
     '<div class="card-action activator">' + 
       '<p><a href="' + marker.website + '" class="btn">Website</a>' + 
       twitterHTML + 
-      '<button class="btn-floating btn-large right"><img src="./images/arrow_upward"></button></p>' +
+      '<i class="medium mdi-navigation-expand-less right" aria-label="reveal twitter stream" ></i></p>' +
     '</div>' + 
     '<div class="card-reveal">' + 
-      '<span class="card-title">' + marker.name + '\'s Twitter feed<button class="btn-floating btn-large right"><i class="material-icons">close</i></button></span>' + 
+      '<span class="card-title">' + marker.name + '\'s Twitter feed<i class="medium mdi-navigation-close right" aria-label="close twitter stream"></i></span>' + 
       '<p>Here are tweets from ' + marker.name + ' account!</p>' + 
     '</div>' + 
   '</div>' + 
