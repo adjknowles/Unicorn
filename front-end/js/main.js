@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  $("#intro").on("click", closeIntro);
   $("form").on("submit", submitForm);
   $(".login-link, .register-link, .about-link, .addstartup-link, .addworkspace-link").on("click", showPage)
   $(".map-link").on("click", mapPage);
@@ -10,6 +11,14 @@ $(document).ready(function(){
   hideErrors();
   checkLoginState();
 });
+
+function closeIntro(){
+  event.preventDefault();
+
+  // Enter js to slide or fade the page out, then in the callback, have the return mapPage();
+  
+  return mapPage();
+};
 
 function mapPage(){
   event.preventDefault();
