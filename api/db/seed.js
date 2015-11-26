@@ -163,6 +163,94 @@ var workspace6 = new Workspace({
 });
 workspace6.save(confirmWorkspaceSave);
 
+var workspace7 = new Workspace({
+  name:        "Canvas Cafe",
+  website:     "https://thecanvascafe.org",
+  email:       "ruth@thecanvascafe",
+  address:     "42 Hanbury St., London E1 5JL",
+  postcode:    "E1 5JL",
+  telephone:   "+44 20 7018 1020 ",
+  contactName: "Ruth",
+  twitter:     "@thecanvascafe",
+  facebook:    "https://facebook.com/thecavase1",
+  openingTimesWeekdayOpen:  "9:00 a.m., Closed Monday",
+  openingTimesWeekdayClose: "9:00 p.m., Closed Monday",
+  openingTimesWeekendOpen:  "10:00 a.m.",
+  openingTimesWeekendClose: "8:00 p.m.",
+  // photo:                    "",
+  // averageRent:              "",
+  // services:                 "",
+  sector:      "",
+  spaceType:   "Cafe"
+});
+workspace7.save(confirmWorkspaceSave);
+
+var workspace8 = new Workspace({
+  name:        "British Library",
+  website:     "https://www.wework.com/locations/london/spitalfields",
+  email:       "joinus@wework.com",
+  address:     "1 Primrose St London EC2A 2EX",
+  postcode:    "EC2A 2EX",
+  telephone:   "+44 20 3695 4926",
+  contactName: "Antonia Bayly",
+  twitter:     "@WeWorkLDN",
+  // facebook:    "",
+  // openingTimesWeekdayOpen:  "",
+  // openingTimesWeekdayClose: "",
+  // openingTimesWeekendOpen:  "",
+  // openingTimesWeekendClose: "",
+  // photo:                    "",
+  // averageRent:              "",
+  // services:                 "",
+  sector:      "Education",
+  spaceType:   "Library"
+});
+workspace8.save(confirmWorkspaceSave);
+
+var workspace9 = new Workspace({
+  name:        "Wellcome Library",
+  website:     "https://www.wework.com/locations/london/spitalfields",
+  email:       "joinus@wework.com",
+  address:     "1 Primrose St London EC2A 2EX",
+  postcode:    "EC2A 2EX",
+  telephone:   "+44 20 3695 4926",
+  contactName: "Antonia Bayly",
+  twitter:     "@WeWorkLDN",
+  // facebook:    "",
+  // openingTimesWeekdayOpen:  "",
+  // openingTimesWeekdayClose: "",
+  // openingTimesWeekendOpen:  "",
+  // openingTimesWeekendClose: "",
+  // photo:                    "",
+  // averageRent:              "",
+  // services:                 "",
+  sector:      "Education",
+  spaceType:   "Library"
+});
+workspace9.save(confirmWorkspaceSave);
+
+var workspace10 = new Workspace({
+  name:        "Regus",
+  website:     "https://regus.co.uk",
+  email:       "",
+  address:     "Portland House, Bressenden Pl, London, SW1E 5RS",
+  postcode:    "SW1E 5RS",
+  telephone:   "+44 20 7869 8000",
+  contactName: "",
+  twitter:     "@Regus_Uk",
+  facebook:    "https://facebook.com/regus_uk",
+  openingTimesWeekdayOpen:  "8:30 a.m.",
+  openingTimesWeekdayClose: "6:00 p.m.",
+  openingTimesWeekendOpen:  "Closed",
+  openingTimesWeekendClose: "Closed",
+  // photo:                    "",
+  // averageRent:              "",
+  // services:                 "",
+  sector:      "Business",
+  spaceType:   "Co-working"
+});
+workspace10.save(confirmWorkspaceSave);
+
 
 
 
