@@ -236,8 +236,8 @@ mapApp.init = function(){
 
   // Icons for markers
   mapApp.icons = {
-    workspaces: './images/shelter.png',//'http://i.imgur.com/J6p1ops.png',
-    startups:   './images/unicorn.jpg'//'http://i.imgur.com/zSIbR3c.jpg'
+    workspaces: './images/shelter.png',
+    startups:   './images/unicorn-pink.png'
   }
 
   mapApp.setupAutocompleteFields()
