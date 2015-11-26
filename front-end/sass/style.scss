@@ -29,6 +29,10 @@ $main-header-bg-color:    $pink !default;
 
 .card {
   color:              #FFF;
+  .small-icon {
+    max-width:    30px;
+    max-height:   30px;
+  }
   .card-content {
     .card-title {
       font-size:      $card-font-size-title; 

@@ -54,7 +54,7 @@ mapApp.addMarkers = function(markerType){
       $.each(marker, function(key, value) {
         if(value){
           singleHTML = '<p class="card-text">' +
-          '<img src="assets/images/'+ key +'">' + key + ': ' + value + 
+          '<img src="./images/'+ key +'">' + key + ': ' + value + 
           '</p>';
           dataHTML   = dataHTML + singleHTML;
         }
@@ -72,7 +72,7 @@ mapApp.addMarkers = function(markerType){
     '<div class="card-action activator">' + 
       '<p><a href="' + marker.website + '" class="btn">Website</a>' + 
       twitterHTML + 
-      '<button class="btn-floating btn-large right"><img src="./public/assets/images/arrow_upward"></button></p>' +
+      '<button class="btn-floating btn-large right"><img src="./images/arrow_upward"></button></p>' +
     '</div>' + 
     '<div class="card-reveal">' + 
       '<span class="card-title">' + marker.name + '\'s Twitter feed<button class="btn-floating btn-large right"><i class="material-icons">close</i></button></span>' + 
@@ -184,10 +184,11 @@ mapApp.clearMarkers = function() {
   mapApp.markers = [];
 }
 
-mapApp.addInfoWindowToMarker = function(marker){
+mapApp.addInfoWindowToMarker = function(marker, id){
   var contentHTML = 
   '<ul>' + 
-    '<li class="infowindowtitle">'+ marker.title +'</li>' + 
+    '<li class="infowindowtitle">'+ marker.title +'</li>' +
+    '<li class="infowindowlink"><a href="#' + id + '">For further information, please click here</a></li>'+
   '</ul>';
 
   var infoWindow = new google.maps.InfoWindow({
@@ -209,6 +210,6 @@ mapApp.addMarkerWithTimeout = function(marker, markerType, timeout) {
       title:     marker.name,
       position:  position
     });
-    mapApp.markers.push(mapApp.addInfoWindowToMarker(gmMarker), timeout);
+    mapApp.markers.push(mapApp.addInfoWindowToMarker(gmMarker, marker._id), timeout);
   });
 }

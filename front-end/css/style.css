@@ -1621,6 +1621,9 @@
 /* Overriding materialize's variables */
 .card {
   color: #FFF; }
+  .card .small-icon {
+    max-width: 30px;
+    max-height: 30px; }
   .card .card-content .card-title {
     font-size: 2.5em;
     font-weight: 400; }
