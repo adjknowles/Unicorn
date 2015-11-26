@@ -3,6 +3,10 @@ var User      = require('../models/user');
 var Startup   = require('../models/startup');
 var Workspace = require('../models/workspace');
 
+var config         = require('../config/config');
+
+mongoose.connect(config.database);
+
 function confirmUserSave(err, user){
   if (err) console.log(err);
   console.log("User has been added.", user);
@@ -47,7 +51,7 @@ var startup1 = new Startup({
     photo:                  "https://pbs.twimg.com/profile_images/619451267102838784/iqaEBUTm.jpg",
     logo:                   "https://pbs.twimg.com/profile_images/619451267102838784/iqaEBUTm.jpg"
 });
-startup1.save(confirmStartupSave);
+startup1.save();
 
 var startup2 = new Startup({   
     name:                   "Medium Rare Digital",
