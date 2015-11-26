@@ -30,27 +30,6 @@ function confirmStartupSave(err, startup){
 
 // user1.save(confirmUserSave);
 
-var workspace1 = new Workspace({
-  name:        "We Work Spitalfields",
-  website:     "https://www.wework.com/locations/london/spitalfields",
-  email:       "joinus@wework.com",
-  address:     "1 Primrose St London EC2A 2EX",
-  postcode:    "EC2A 2EX",
-  telephone:   "+44 20 3695 4926",
-  contactName: "Antonia Bayly",
-  twitter:     "WeWorkLDN",
-  // facebook:    "",
-  // openingTimesWeekdayOpen:  "",
-  // openingTimesWeekdayClose: "",
-  // openingTimesWeekendOpen:  "",
-  // openingTimesWeekendClose: "",
-  // photo:                    "",
-  // averageRent:              "",
-  // services:                 "",
-  sector:      "Tech",
-  spaceType:   "Co-working"
-});
-workspace1.save(confirmWorkspaceSave);
 
 
 var startup1 = new Startup({   
