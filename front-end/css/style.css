@@ -1620,6 +1620,7 @@
 
 /* Overriding materialize's variables */
 /* cards */
+/* placeholder font color */
 .card {
   color: #FFF; }
   .card .small-icon {
@@ -1633,6 +1634,9 @@
   .card .card-content .card-text {
     font-size: 1.2em;
     font-weight: 300; }
+    .card .card-content .card-text .small-icon-container {
+      display: inline-block;
+      width: 30px; }
   .card .card-action {
     background-color: #DC1378; }
     .card .card-action a {
@@ -7379,12 +7383,12 @@ small {
   padding: 20px;
   margin: 0.5rem 0 1rem 0;
   border-radius: 2px;
-  background-color: #13B9DF; }
+  background-color: #595959; }
 
 .card {
   position: relative;
   margin: 0.5rem 0 1rem 0;
-  background-color: #13B9DF;
+  background-color: #595959;
   transition: box-shadow .25s;
   border-radius: 2px; }
   .card .card-title {
@@ -7425,7 +7429,7 @@ small {
       bottom: 0;
       width: 100%; }
     .card .card-image .card-title {
-      color: #13B9DF;
+      color: #595959;
       position: absolute;
       bottom: 0;
       left: 0;
@@ -7455,7 +7459,7 @@ small {
   .card .card-reveal {
     padding: 20px;
     position: absolute;
-    background-color: #13B9DF;
+    background-color: #595959;
     width: 100%;
     overflow-y: auto;
     top: 100%;
@@ -7665,7 +7669,7 @@ small {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #DC1378;
+  background-color: #13B9DF;
   text-align: center;
   letter-spacing: .5px;
   -webkit-transition: 0.2s ease-out;
@@ -7675,7 +7679,7 @@ small {
   transition: 0.2s ease-out;
   cursor: pointer; }
   .btn:hover, .btn-large:hover {
-    background-color: #eb1d85; }
+    background-color: #20c6ec; }
 
 .btn-floating {
   display: inline-block;
@@ -7687,7 +7691,7 @@ small {
   height: 37px;
   line-height: 37px;
   padding: 0;
-  background-color: #DC1378;
+  background-color: #13B9DF;
   border-radius: 50%;
   transition: .3s;
   cursor: pointer;
@@ -8115,28 +8119,28 @@ select:focus {
 
 button:focus {
   outline: none;
-  background-color: #eb1882; }
+  background-color: #1bc5ec; }
 
 label {
   font-size: 0.8rem;
-  color: #9e9e9e; }
+  color: #074452; }
 
 /***************************
    Text Inputs + Textarea
 ****************************/
 ::-webkit-input-placeholder {
-  color: #d1d1d1; }
+  color: #0f92b0; }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: #d1d1d1; }
+  color: #0f92b0; }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #d1d1d1; }
+  color: #0f92b0; }
 
 :-ms-input-placeholder {
-  color: #d1d1d1; }
+  color: #0f92b0; }
 
 input[type=text],
 input[type=password],
@@ -8151,7 +8155,7 @@ input[type=search],
 textarea.materialize-textarea {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #9e9e9e;
+  border-bottom: 1px solid #074452;
   border-radius: 0;
   outline: none;
   height: 3rem;
@@ -8350,7 +8354,7 @@ textarea.materialize-textarea {
   position: relative;
   margin-top: 1rem; }
   .input-field label {
-    color: #9e9e9e;
+    color: #074452;
     position: absolute;
     top: 0.8rem;
     left: 0.75rem;
@@ -8804,7 +8808,7 @@ input[type=checkbox]:not(:disabled) ~ .lever:active:after {
     cursor: pointer;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #9e9e9e;
+    border-bottom: 1px solid #074452;
     outline: none;
     height: 3rem;
     line-height: 3rem;
@@ -10229,6 +10233,12 @@ nav.main-header a#brand-logo {
     max-height: 100%;
     max-width: 100%; }
 
+footer a#brand-logo {
+  height: 64px; }
+  footer a#brand-logo img {
+    max-height: 100%;
+    max-width: 100%; }
+
 #map-container {
   background-size: cover !important;
   background-position: center;
@@ -10248,5 +10258,8 @@ body {
       min-height: 500px;
       min-width: 500px;
       position: relative; }
+
+input.search-box {
+  font-size: 1.8em; }
 
 /*# sourceMappingURL=style.css.map */

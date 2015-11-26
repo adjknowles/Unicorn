@@ -8,7 +8,7 @@ $primary-color-light:     lighten($primary-color, 15%) !default;
 $primary-color-dark:      darken($primary-color, 15%) !default;
 $secondary-color:         $pink !default;
 $link-color:              color("light-blue", "darken-1") !default;
-$button-color:            $secondary-color !default;
+$button-color:            $primary-color !default;
 $main-header-bg-color:    $blue !default;
 $footer-bg-color:         $blue !default;
 
@@ -18,7 +18,7 @@ $footer-bg-color:         $blue !default;
 // $card-link-color: color("orange", "accent-2") !default;
 // $card-link-color-light: lighten($card-link-color, 20%) !default;
 
-$card-bg-color:           $primary-color; //color("purple", "lighten-1") !default;
+$card-bg-color:           lighten($black, 35%); //color("purple", "lighten-1") !default;
 $card-action-bg-color:    $secondary-color;//color("purple", "base") !default;
 $card-reveal-bg-color:    white !default; //doesn't work! overwritten by $card-bg-color
 $card-link-color:         #FFF !default; //'website text color'
@@ -32,8 +32,8 @@ $card-font-weight-button: 400 !default;
 $card-font-size-main:     1.2em !default;
 $card-font-weight-main:   300 !default;
 
-
-
+/* placeholder font color */
+$input-border-color: darken($blue, 30%);
 
 .card {
   color:              #FFF;
@@ -52,6 +52,10 @@ $card-font-weight-main:   300 !default;
     .card-text {
       font-size:      $card-font-size-main; 
       font-weight:    $card-font-weight-main;
+      .small-icon-container {
+        display: inline-block;
+        width:   30px;
+      }
     }
   }
   .card-action {
@@ -81,11 +85,23 @@ $card-font-weight-main:   300 !default;
 /* End of overriding materialize's variables */
 @import '../materialize-src/sass/materialize';
 
+
+
 .main-header {
   background-color: $main-header-bg-color
 }
 
 nav.main-header {
+  a#brand-logo {
+    height: 64px;
+    img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+footer {
   a#brand-logo {
     height: 64px;
     img {
@@ -148,4 +164,8 @@ body{
     }
   }
 
+}
+
+input.search-box {
+  font-size: 1.8em;
 }
