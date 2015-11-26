@@ -51,12 +51,16 @@ mapApp.addMarkers = function(markerType){
       // }
       var dataHTML   = '';
       var singleHTML = '';
+      var itemsForShow = ['website', 'email', 'address', 'telephone', 'contactName', 'twitter', 'facebook', 'headquarters', 'phone'];
+
       $.each(marker, function(key, value) {
-        if(value){
-          singleHTML = '<p class="card-text">' +
-          '<img src="./images/'+ key +'.png" class="small-icon" aria-label="' + key + 'icon">' + key + ': ' + value + 
-          '</p>';
-          dataHTML   = dataHTML + singleHTML;
+        if(itemsForShow.indexOf(key) > -1){
+          if(value){
+            singleHTML = '<p class="card-text">' +
+            '<img src="./images/'+ key +'.png" class="small-icon" aria-label="' + key + 'icon">' + value + 
+            '</p>';
+            dataHTML   = dataHTML + singleHTML;
+          }  
         }
       });
       
