@@ -3,14 +3,16 @@
 
 /* Overriding materialize's variables */
 
-$primary-color:           $blue !default;
+$primary-color:           #00bc66 !default; // $blue !default;
 $primary-color-light:     lighten($primary-color, 15%) !default;
 $primary-color-dark:      darken($primary-color, 15%) !default;
 $secondary-color:         $pink !default;
 $link-color:              color("light-blue", "darken-1") !default;
+$blue:                    #009EFF;
+$black:                   #222;
 $button-color:            $primary-color !default;
-$main-header-bg-color:    $blue !default;
-$footer-bg-color:         $blue !default;
+$main-header-bg-color:    white !default; // $primary-color !default;
+$footer-bg-color:         $primary-color !default;
 
 /* cards */
 // $card-padding: 20px !default;
@@ -18,7 +20,7 @@ $footer-bg-color:         $blue !default;
 // $card-link-color: color("orange", "accent-2") !default;
 // $card-link-color-light: lighten($card-link-color, 20%) !default;
 
-$card-bg-color:           lighten($black, 35%); //color("purple", "lighten-1") !default;
+$card-bg-color:           white !default; // lighten($black, 35%); //color("purple", "lighten-1") !default;
 $card-action-bg-color:    $secondary-color;//color("purple", "base") !default;
 $card-reveal-bg-color:    white !default; //doesn't work! overwritten by $card-bg-color
 $card-link-color:         #FFF !default; //'website text color'
@@ -33,10 +35,11 @@ $card-font-size-main:     1.2em !default;
 $card-font-weight-main:   300 !default;
 
 /* placeholder font color */
-$input-border-color: darken($blue, 30%);
+$input-border-color: $primary-color; // darken($blue, 30%);
 
 .card {
-  color:              #FFF;
+  box-shadow: none !important;
+
   .small-icon {
     max-width:    30px;
     max-height:   30px;
@@ -46,7 +49,7 @@ $input-border-color: darken($blue, 30%);
       font-size:      $card-font-size-title; 
       font-weight:    $card-font-weight-title;
       img {
-        margin:       0 20px 0 0;
+        margin:       0 10px 0 0;
       }
     }
     .card-text {
@@ -59,7 +62,7 @@ $input-border-color: darken($blue, 30%);
     }
   }
   .card-action {
-    background-color: $card-action-bg-color;
+    // background-color: $card-action-bg-color;
     a {
       font-size:      $card-font-size-button; 
       font-weight:    $card-font-weight-button;
@@ -75,10 +78,6 @@ $input-border-color: darken($blue, 30%);
   }
   button, .btn {
     background-color: $secondary-color;
-
-  }
-  a {
-    /* color: #fff; */
   }
 }
 
@@ -86,14 +85,22 @@ $input-border-color: darken($blue, 30%);
 @import '../materialize-src/sass/materialize';
 
 
-
 .main-header {
-  background-color: $main-header-bg-color
+  background-color: $main-header-bg-color;
+}
+
+nav {
+  ul {
+    a {
+      color: $black;
+      font-size: 17px;
+    }
+  }
 }
 
 nav.main-header {
   a#brand-logo {
-    height: 64px;
+    height: 30px;
     img {
       max-height: 100%;
       max-width: 100%;
@@ -117,13 +124,50 @@ footer {
   text-align: center;
 }
 
-body{
+body {
   font-family: 'Lato', sans-serif;
   font-size: 100%; 
-  header {
+  background: #f6f6f6;
+ 
+  // Style Placeholders
+  ::-webkit-input-placeholder {
+    color: $black; // $input-border-color;
+    text-align: center;
   }
+
+  :-moz-placeholder { /* Firefox 18- */
+    color: $black; // $input-border-color;
+    text-align: center;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    color: $black; // $input-border-color;
+    text-align: center;
+  }
+
+  :-ms-input-placeholder {
+    color: $black; // $input-border-color;
+    text-align: center;
+  }
+
+  .card-text {
+    text-align: right;
+    li {
+      display: inline-block;
+      padding: 10px;
+    }
+  }
+
+  .add-place-to-form {
+    width: 100% !important;
+  }
+
+  input#main-search-box {
+    margin: 20px 0;
+    border-bottom: 2px solid $primary-color;
+  }
+
   main {
-    
     section#map {
       width: 100%;
       height: 100%;
@@ -138,32 +182,7 @@ body{
         position: relative;
       }
     }
-
-    section#register {
-      form#form-register {
-
-      }
-    }
-
-    section#login {
-      form#form-login {
-
-      }
-    }
-
-    section#new-startup {
-      form#form-new-startup {
-
-      }
-    }
-
-    section#new-workspace {
-      form#form-new-workspace {
-
-      }
-    }
   }
-
 }
 
 input.search-box {
