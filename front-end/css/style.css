@@ -1619,17 +1619,30 @@
   color: transparent !important; }
 
 /* Overriding materialize's variables */
-.card .card-content {
-  color: #e1bee7; }
-.card .card-action {
-  background-color: #9c27b0; }
-.card .card-title {
-  font-size: 24px;
-  font-weight: 900; }
-.card button {
-  background-color: inherit; }
-.card a {
-  /* color: #fff; */ }
+.card {
+  color: #FFF; }
+  .card .card-content .card-title {
+    font-size: 2.5em;
+    font-weight: 400; }
+    .card .card-content .card-title img {
+      margin: 0 20px 0 0; }
+  .card .card-content .card-text {
+    font-size: 1.2em;
+    font-weight: 300; }
+  .card .card-action {
+    background-color: #9c27b0; }
+    .card .card-action a {
+      font-size: 1.5em;
+      font-weight: 400; }
+  .card .card-reveal {
+    background-color: #FFF; }
+    .card .card-reveal .card-title {
+      font-size: 2.5em;
+      font-weight: 400; }
+  .card button, .card .btn, .card .btn-large {
+    background-color: #DC1378; }
+  .card a {
+    /* color: #fff; */ }
 
 /* End of overriding materialize's variables */
 .materialize-red.lighten-5 {
@@ -7425,7 +7438,7 @@ small {
     border-top: 1px solid rgba(160, 160, 160, 0.2);
     padding: 20px; }
     .card .card-action a {
-      color: #e040fb;
+      color: #FFF;
       margin-right: 20px;
       -webkit-transition: color 0.3s ease;
       -moz-transition: color 0.3s ease;
@@ -7434,7 +7447,7 @@ small {
       transition: color 0.3s ease;
       text-transform: uppercase; }
       .card .card-action a:hover {
-        color: #f0a4fd; }
+        color: white; }
   .card .card-reveal {
     padding: 20px;
     position: absolute;

@@ -13,7 +13,14 @@ $button-color:            $secondary-color !default;
 $footer-bg-color:         $pink !default;
 
 $card-bg-color:           color("purple", "lighten-1") !default;
-$card-link-color:         color("purple", "accent-2") !default;
+$card-reveal-bg-color:    #FFF !default;
+$card-link-color:         #FFF !default;
+$card-font-size-title:    2.5em !default;
+$card-font-weight-title:  400 !default;
+$card-font-size-button:   1.5em !default;
+$card-font-weight-button: 400 !default;
+$card-font-size-main:     1.2em !default;
+$card-font-weight-main:   300 !default;
 
 $card-content-text-color: color("purple", "lighten-4") !default;
 $card-action-bg-color:    color("purple", "base") !default;
@@ -21,18 +28,38 @@ $card-action-bg-color:    color("purple", "base") !default;
 $main-header-bg-color:    $pink !default;
 
 .card {
+  color:              #FFF;
   .card-content {
-    color:            $card-content-text-color;
+    .card-title {
+      font-size:      $card-font-size-title; 
+      font-weight:    $card-font-weight-title;
+      img {
+        margin:       0 20px 0 0;
+      }
+    }
+    .card-text {
+      font-size:      $card-font-size-main; 
+      font-weight:    $card-font-weight-main;
+    }
   }
   .card-action {
     background-color: $card-action-bg-color;
+    a {
+      font-size:      $card-font-size-button; 
+      font-weight:    $card-font-weight-button;
+    }
+
+  } 
+  .card-reveal {
+    background-color: $card-reveal-bg-color;
+    .card-title {
+      font-size:      $card-font-size-title; 
+      font-weight:    $card-font-weight-title;
+    }
   }
-  .card-title {
-    font-size:        24px;
-    font-weight:      900; //300;
-  }
-  button {
-    background-color: inherit;
+  button, .btn {
+    background-color: $pink;
+
   }
   a {
     /* color: #fff; */

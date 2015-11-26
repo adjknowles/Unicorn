@@ -1,6 +1,7 @@
 $(function(){
   mapApp.init();
-  mapApp.addMarkers();
+  mapApp.addMarkers('startups');
+  mapApp.addMarkers('workspaces');
   $('.add-place-to-form').on('click', mapApp.captureLatLng);
   $('#form-new-startup').on('submit', mapApp.postStartup);
 })
@@ -23,29 +24,57 @@ mapApp.captureLatLng = function(){
   }
 }
 
-mapApp.addMarkers = function(){
-  ajaxRequest("get", "http://localhost:3000/api/workspaces", null, function(data){
+mapApp.addMarkers = function(markerType){
+  ajaxRequest("get", "http://localhost:3000/api/" + markerType, null, function(data){
+    console.log(data);
+    // console.log(data["workspace"]);
+    console.log(markerType);
     mapApp.clearMarkers();
-    $.each(data.workspaces, function(index, marker){
+    $.each(data[markerType], function(index, marker){
       console.log(marker)
-      mapApp.addMarkerWithTimeout(marker, index * 200);
-
-      // var markerHTML = "<li><h1>"+marker.name+"</h1></li>";
+      mapApp.addMarkerWithTimeout(marker, markerType , index * 200);
+      
+      // var phoneHTML = '';
+      // if(marker.telephone){
+      //   telephoneHTML = '';
+      // }
+      var twitterHTML = '';
+      if(marker.twitter) {
+        twitterHTML = '<a href="' + marker.twitter + '" class="btn">Twitter</a>';
+      }
+      // var addressHTML = '';
+      // if(marker.headquarters){
+      //   addressHTML = '<a href="https://www.google.com/maps/place/' + marker.headquarters + '" class="btn">' + marker.headquarters + '</a>';
+      // }
+      // if(marker.address) {
+      //   addressHTML = '<a href="https://www.google.com/maps/place/' + marker.address + '" class="btn">' + marker.address + '</a>';
+      // }
+      var dataHTML   = '';
+      var singleHTML = '';
+      $.each(marker, function(key, value) {
+        if(value){
+          singleHTML = '<p class="card-text">' +key + ': ' + value + '</p>'
+          dataHTML   = dataHTML + singleHTML;
+        }
+      });
+      
       var markerHTML = 
-'<li>' +       
+'<li id="' + marker._id + '">' +      
   '<div class="card">' + 
-    '<div class="card-content activator purple lighten-3 purple-text text-darken-4">' + 
-      '<span class="card-title">' + marker.name + '</span>' + 
-      '<p><a href="#">' + marker.website + '</a><i class="material-icons right">arrow_upward</i></p>' + 
+    '<div class="card-content">' + 
+      '<p class="card-title"><img src="'+ mapApp.icons[markerType] +'">' + marker.name + '</p>' +   
+      dataHTML +
+      // '<p class="card-text">' + marker.telephone + '</p>' +  
+      // '<p class="card-text">' + addressHTML + '</p>' + 
     '</div>' + 
-    '<div class="card-action purple">' + 
-      '<a href="#" class="">This is a link</a>' + 
-      '<a href="#" class="">This is a link</a>' + 
+    '<div class="card-action activator">' + 
+      '<p><a href="' + marker.website + '" class="btn">Website</a>' + 
+      twitterHTML + 
+      '<button class="btn-floating btn-large right"><i class="material-icons">arrow_upward</i></button></p>' +
     '</div>' + 
-    '<div class="card-reveal purple-text text-darken-4">' + 
-      '<span class="card-title">' + marker.name + 's Twitter feed<i class="material-icons right">close</i></span>' + 
+    '<div class="card-reveal">' + 
+      '<span class="card-title">' + marker.name + '\'s Twitter feed<button class="btn-floating btn-large right"><i class="material-icons">close</i></button></span>' + 
       '<p>Here are tweets from ' + marker.name + ' account!</p>' + 
-      '<p><a href="'+ marker.twitter + '">Twitter</a></p>' + 
     '</div>' + 
   '</div>' + 
 '</li>';
@@ -88,8 +117,8 @@ mapApp.init = function(){
 
   // Icons for markers
   mapApp.icons = {
-    workspace: 'http://i.imgur.com/J6p1ops.png',
-    startup: 'http://i.imgur.com/zSIbR3c.jpg'
+    workspaces: 'http://i.imgur.com/J6p1ops.png',
+    startups:   'http://i.imgur.com/zSIbR3c.jpg'
   }
 
   mapApp.setupAutocompleteFields()
@@ -142,15 +171,16 @@ mapApp.clearMarkers = function() {
   mapApp.markers = [];
 }
 
-mapApp.addMarkerWithTimeout = function(marker, timeout) {
+mapApp.addMarkerWithTimeout = function(marker, markerType, timeout) {
   window.setTimeout(function() {
     var position = new google.maps.LatLng(marker.latitude, marker.longitude);
 
     mapApp.markers.push(new google.maps.Marker({
-      position: position,
-      map: mapApp.map,
-      icon: mapApp.icons["workspace"],
-      animation: google.maps.Animation.DROP
+      map:       mapApp.map,
+      icon:      mapApp.icons[markerType],
+      animation: google.maps.Animation.DROP,
+      title:     marker.name,
+      position:  position
     }));
   }, timeout);
 }
