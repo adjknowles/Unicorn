@@ -264,7 +264,7 @@ mapApp.setupAutocompleteFields = function(){
 
       mapApp.place = autocomplete.getPlace();
     
-      var icon = mapApp.icons[field.split("-")[0]];
+      var icon = mapApp.icons[field.split("-")[0]+"s"];
 
       var marker = new google.maps.Marker({
         map:       mapApp.map,
