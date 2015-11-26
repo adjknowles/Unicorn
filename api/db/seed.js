@@ -343,8 +343,7 @@ var workspace6 = new Workspace({
   name:        "Nude Espresso",
   website:     "http://www.nudeespresso.com/",
   email:       "roastery@nudeespresso.com",
-  address:     "19 Soho Square, London W1D 3QN
-",
+  address:     "19 Soho Square, London W1D 3QN",
   postcode:    "W1D 3QN",
   telephone:   "+44 20 3695 4926",
   contactName: "Tom Flawith",
