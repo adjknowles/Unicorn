@@ -171,7 +171,22 @@ body {
     section#intro {
     width: 100%;
     height: 100vh;
-    #intro-tagline {}
+    .intro-wrapper {
+      width: 58%;
+      margin: 0 auto;
+      p {
+        font-size: 1.4em;
+      }
+      p#intro-enter {
+        color: #009EFF;
+        font-weight: 900;
+      }
+    }
+    #intro-tagline {
+        font-size: 39px;
+        font-weight: 900;
+        color: #009EFF;
+    }
     p {
       font-size: 2em;
       }

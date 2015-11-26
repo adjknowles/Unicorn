@@ -10275,6 +10275,18 @@ body {
   body main section#intro {
     width: 100%;
     height: 100vh; }
+    body main section#intro .intro-wrapper {
+      width: 58%;
+      margin: 0 auto; }
+      body main section#intro .intro-wrapper p {
+        font-size: 1.4em; }
+      body main section#intro .intro-wrapper p#intro-enter {
+        color: #009EFF;
+        font-weight: 900; }
+    body main section#intro #intro-tagline {
+      font-size: 39px;
+      font-weight: 900;
+      color: #009EFF; }
     body main section#intro p {
       font-size: 2em; }
   body main section#about p {

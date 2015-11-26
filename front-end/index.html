@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="./css/style.css"> 
   <link rel="stylesheet" type="text/css" href="./css/animate.css"> 
   <!-- jQuery -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <!-- Google Maps -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDt_Iu8lneJjK0Fnxn34y0ZHHelEvx0g8s&libraries=places"></script>
   <!-- CSS framework's JavaScript -->
@@ -17,7 +17,7 @@
   <!--<script type="text/javascript" src="./js/maps-and-places.js"></script>-->
   <script type="text/javascript" src="./js/new-map.js"></script>
   
-    <!-- Google Font -->
+  <!-- Google Font -->
   <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,900' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -39,21 +39,23 @@
   </header>
 
   <main>
-    <section id="intro" class="container logged-out">
-      <div class="row">
+  <section id="intro" class="container logged-out valign-wrapper">
+      <div class="row valign">
         <div class="col s12 center">
           <span class="animated bounceInLeft">
             <img id="intro-logo" alt="Unicorn logo" src="../images/unicorn-logo-blue.png">
           </span>
-          <span class="animated fadeIn">
-            <h2 id="intro-tagline">Find a shelter for your unicorn...</h2>
-          </span>
-          <span class="animated fadeIn">
-          <p> Unicorn is where you can find all the unique startups and workspaces in and around London. Register to access our magical land...</p>
+          <div class="intro-wrapper">
+            <span class="animated fadeIn">
+              <h2 id="intro-tagline">FIND A SHELTER FOR YOUR UNICORN...</h2>
+            </span>
+            <span class="animated fadeIn">
+              <p> Unicorn is where you can find all the unique startups and workspaces in and around London. Register to access our magical land...</p>
 
-          <p>Once you enter, search to find a shelter for your unicorn (a workspace for your startup). When you have found it, cherish it! It's special. If you didn't find one on our site, we encourage you to add your own. We want our magical land to grow!</p>
-          <p id="intro-enter">Click to enter</p>
-          </span>
+              <p>Once you enter, search to find a shelter for your unicorn (a workspace for your startup). When you have found it, cherish it! It's special. If you didn't find one on our site, we encourage you to add your own. We want our magical land to grow!</p>
+              <p id="intro-enter">CLICK TO ENTER</p>
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -82,9 +84,9 @@
     <section id="about" class="container">
       <div class="row">
         <div class="col s12">
-        <p>Unicorn is a magical land to connect you with a place to study, work or connect to a startup.</p> 
+          <p>Unicorn is a magical land to connect you with a place to study, work or connect to a startup.</p> 
 
-        <p>Unicorn is a student group project at General Assembly, which evolved out of need to find a places to power electronic devices."</p>
+          <p>Unicorn is a student group project at General Assembly, which evolved out of need to find a places to power electronic devices."</p>
         </div>
       </div>
     </section>
@@ -123,7 +125,7 @@
       <!-- 
           <label for="login-username"></label>
           <input type="text" class="validate" name="username" id="login-username" placeholder="Username" >
-       -->
+        -->
         <label for="login-password"></label>
         <input type="password" class="validate" name="password" id="login-password" placeholder="Password" >
 
@@ -258,7 +260,7 @@
         <input type="hidden" class="validate" name="longitude" id="lng-workspace" placeholder="" >
 
         <button type="submit" class="btn waves-effect waves-light">New Workspace</button>
-    </form>
+      </form>
     </section>
 
   </main>
@@ -266,8 +268,8 @@
   <footer class="page-footer">
     <div class="container center">
       <ul class="">
-        <li class=""><a href="https://twitter.com/share" span class="twitter-share-button"{count}>Tweet</a></li>
-        <li class=""><div class="fb-share-button" data-href="https://generalassemb.ly/" data-layout="button_count"></div></li>
+<!--         <li class=""><a href="https://twitter.com/share" span class="twitter-share-button"{count}>Tweet</a></li>
+        <li class=""><div class="fb-share-button" data-href="https://generalassemb.ly/" data-layout="button_count"></div></li> -->
       </ul>
     </div>
     <div class="footer-copyright">
