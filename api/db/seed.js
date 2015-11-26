@@ -52,21 +52,6 @@ var workspace1 = new Workspace({
 });
 workspace1.save(confirmWorkspaceSave);
 
-var startup1 = new Startup({
-  name:         "Second Home",
-  headquarters: "68-80 Hanbury St, London E1 5JL",
-  founders:     "Sam Aldenton, Rohan Silva",
-  sector:       "Tech",
-  email:        "hello@secondhome.io",
-  phone:        "020 3818 3240",
-  website:      "https://www.secondhome.io",
-  twitter:      "https://www.twitter.com/secondhomeldn",
-  facebook:     "https://www.facebook.com/secondhomeldn",
-  photo:        "http://static.dezeen.com/uploads/2014/12/Second-Home-by-SelgasCano_dezeen_784_1.jpg",
-  logo:         "https://nuu-assets.s3.amazonaws.com/uploads/attachment/filename/220/large_SH_2part_Logo_Texture_100_RGB_06_Lo__1_.png"
-});
-startup1.save(confirmStartupSave);
-
 
 var startup1 = new Startup({   
     name:                   "Secret Escapes",
