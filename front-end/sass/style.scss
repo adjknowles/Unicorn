@@ -1,16 +1,80 @@
-@import '../materialize-src/sass/materialize';
+@import '../materialize-src/sass/components/_color';
 @import '_variables';
 
-.btn {
-  background-color: $blue;
+/* Overriding materialize's variables */
+
+$primary-color:           $pink !default;
+$primary-color-light:     lighten($primary-color, 15%) !default;
+$primary-color-dark:      darken($primary-color, 15%) !default;
+$secondary-color:         $blue !default;
+$link-color:              color("light-blue", "darken-1") !default;
+$button-color:            $secondary-color !default;
+
+$footer-bg-color:         $pink !default;
+
+$card-bg-color:           color("purple", "lighten-1") !default;
+$card-reveal-bg-color:    #FFF !default;
+$card-link-color:         #FFF !default;
+$card-font-size-title:    2.5em !default;
+$card-font-weight-title:  400 !default;
+$card-font-size-button:   1.5em !default;
+$card-font-weight-button: 400 !default;
+$card-font-size-main:     1.2em !default;
+$card-font-weight-main:   300 !default;
+
+$card-content-text-color: color("purple", "lighten-4") !default;
+$card-action-bg-color:    color("purple", "base") !default;
+
+$main-header-bg-color:    $pink !default;
+
+.card {
+  color:              #FFF;
+  .small-icon {
+    max-width:    30px;
+    max-height:   30px;
+  }
+  .card-content {
+    .card-title {
+      font-size:      $card-font-size-title; 
+      font-weight:    $card-font-weight-title;
+      img {
+        margin:       0 20px 0 0;
+      }
+    }
+    .card-text {
+      font-size:      $card-font-size-main; 
+      font-weight:    $card-font-weight-main;
+    }
+  }
+  .card-action {
+    background-color: $card-action-bg-color;
+    a {
+      font-size:      $card-font-size-button; 
+      font-weight:    $card-font-weight-button;
+    }
+
+  } 
+  .card-reveal {
+    background-color: $card-reveal-bg-color;
+    .card-title {
+      font-size:      $card-font-size-title; 
+      font-weight:    $card-font-weight-title;
+    }
+  }
+  button, .btn {
+    background-color: $pink;
+
+  }
+  a {
+    /* color: #fff; */
+  }
 }
 
-.btn:hover {
-  background-color: $pink;
-}
+/* End of overriding materialize's variables */
+@import '../materialize-src/sass/materialize';
 
 .main-header {
-  background-color: $pink;
+  background-color: $main-header-bg-color
 }
 
 #map-container {
@@ -19,75 +83,25 @@
   text-align: center;
 }
 
-footer {
-  background-color: $pink !important;
-}
-
 body{
   font-family: 'Lato', sans-serif;
   font-size: 100%; 
   header {
-    nav.main-header {
-      div {
-        a#brand-logo.brand-logo {
-
-        }
-        ul {
-          li {
-            a {
-            }
-          }
-        }
-      }
-    }
   }
   main {
     
-    section {
-      h1 {
-
-      }
-      form {
-
-      }
-    }
-    section#google-places-search-container.container {
-      margin: 0;
-      div.row {
-        input#searchbox {
-
-        }
-        div{
-          h3 {
-          }
-          form.directions_form {
-          }
-        }
-        div{
-          h3 {
-          }
-          button#current_position {
-          }
-        }        
-      }
-    }
-    section#google-map-container.container {
-      div.row {
-        width: 960px;
-        height: 500px;
-        div#map-container {
-          width: 100%;
-          height: 100%;
-          div#googleMap {
-            width: 100%;
-            height: 100%;
-            position: relative;
-          }
-        }
-        div#directions-container {
-          div#directions-panel {
-          }
-        }
+    section#map {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      min-width: 500px;
+      
+      div#googleMap {
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+        min-width: 500px;
+        position: relative;
       }
     }
 
@@ -116,17 +130,4 @@ body{
     }
   }
 
-  footer {
-    div.container {
-      div.row {       
-        div {
-          h5 {
-          }
-          p {
-
-          }
-        }
-      }
-    }
-  }
 }

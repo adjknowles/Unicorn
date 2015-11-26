@@ -1,8 +1,58 @@
 $(document).ready(function(){
-
   $("form").on("submit", submitForm);
-  
+  $(".login-link, .register-link, .about-link, .addstartup-link, .addworkspace-link").on("click", showPage)
+  $(".map-link").on("click", mapPage);
+  $(".logout-link").on("click", logout);
+  // $("#nav-login").on("click", login);
+  // $("#nav-register").on("click", register);
+  // $("#addstartup").on("click", showAddStartup);
+  // $("#addworkspace").on("click", showAddWorkspace);
+  hideErrors();
+  checkLoginState();
 });
+
+function mapPage(){
+  event.preventDefault();
+  $("section").hide();
+  return $("#map").show();
+}
+function showPage(){
+  event.preventDefault();
+  var linkClass = $(this).attr("class").split("-")[0];
+  $("section").hide();
+  return $("#" + linkClass).show();
+}
+
+function logout(){
+  event.preventDefault();
+  removeToken();
+  return loggedOutState();
+}
+
+// function login(){
+//   $("section").hide();
+//   $("#google-map-container").show();
+//   $("#login").show();
+// }
+
+// function register(){
+//   $("section").hide();
+//   $("#google-map-container").show();
+//   $("#register").show();
+// }
+
+// function showAddStartup(){
+//   $("section").hide();
+//   $("#google-map-container").show();
+//   $("#new-startup").show();
+// }
+
+// function showAddWorkspace(){
+//   $("section").hide();
+//   $("#google-map-container").show();
+//   $("#new-workspace").show();
+//   console.log("showAddWorkspace -> main.js")
+// }
 
 function submitForm(){
   event.preventDefault();
@@ -29,6 +79,7 @@ function ajaxRequest(method, url, data, callback) {
 
 function setRequestHeader(xhr, settings) {
   var token = getToken();
+  console.log(token)
   if (token) return xhr.setRequestHeader('Authorization','Bearer ' + token);
 }
 
@@ -38,6 +89,10 @@ function setToken(token) {
 
 function getToken() {
   return localStorage.getItem("token");
+}
+
+function removeToken() {
+  return localStorage.clear();
 }
 
 function authenticationSuccessful(data) {
@@ -55,16 +110,18 @@ function checkLoginState(){
 
 function loggedInState(){
   $("section, .logged-out").hide();
-  $("#google-map-container, .logged-in").show();
-  $("#results, .logged-in").show();
+  $("#map, .logged-in").show();
+  
+  // $("#results, .logged-in").show();
   // Commented out, so that logged in state isn't checked
   // since we don't have the controllers for the startups and workspaces
   // return [getStartups(), getWorkspaces()];
 }
 
 function loggedOutState(){
-  $("section, .logged-in").hide();
-  $("#register, .logged-out").show();
+  $("section").hide();
+  $(".logged-in").hide();
+  $("#map, .logged-out").show();
   return hideResults();
 }
 
@@ -103,4 +160,8 @@ function hideResults(){
 
 function displayErrors(data){
   return $(".alert").text(data).removeClass("hide").addClass("show");
+}
+
+function hideErrors(){
+  return $(".alert").removeClass("show").addClass("hide");
 }
