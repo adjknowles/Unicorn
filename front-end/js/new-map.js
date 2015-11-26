@@ -42,48 +42,46 @@ mapApp.addMarkers = function(markerType){
       if(marker.twitter) {
         twitterHTML = '<a href="' + marker.twitter + '" class="btn">Twitter</a>';
       }
-      // var addressHTML = '';
-      // if(marker.headquarters){
-      //   addressHTML = '<a href="https://www.google.com/maps/place/' + marker.headquarters + '" class="btn">' + marker.headquarters + '</a>';
-      // }
-      // if(marker.address) {
-      //   addressHTML = '<a href="https://www.google.com/maps/place/' + marker.address + '" class="btn">' + marker.address + '</a>';
-      // }
       var dataHTML   = '';
       var singleHTML = '';
+<<<<<<< HEAD
       var itemsForShow = ['website', 'email', 'address', 'telephone', 'contactName', 'twitter', 'facebook', 'headquarters', 'phone', photo];
+=======
+      var itemsForShow = ['twitter', 'facebook', 'website'];
+>>>>>>> 83db89369e6622a0fbdffa060d807738b6b5b1f2
 
       $.each(marker, function(key, value) {
-        if(itemsForShow.indexOf(key) > -1){
-          if(value){
-            singleHTML = '<p class="card-text">' +
-            '<div class="small-icon-container">' + 
-              '<img src="./images/'+ key +'.png" class="small-icon" aria-label="' + key + 'icon">' + value + 
-            '</div>' +
-            '</p>';
-            dataHTML   = dataHTML + singleHTML;
+        if (itemsForShow.indexOf(key) > -1){
+          if (value){
+            singleHTML =
+            '<li>' + 
+              '<a href="'+value+'" target="_blank"><img src="./images/'+ key +'.png" class="small-icon" aria-label="' + key + 'icon"></a>'
+            '</li>'
+            dataHTML = dataHTML + singleHTML;
           }  
         }
       });
+
+      var address   = marker.address ? marker.address : marker.headquarters;
+      var telephone = marker.telephone ? marker.telephone : marker.phone;
       
       var markerHTML = 
-'<li id="' + marker._id + '">' +      
-  '<div class="card">' + 
-    '<div class="card-content">' + 
-      '<p class="card-title"><div class="main-icon-container"><img src="'+ mapApp.icons[markerType] + '" class="small-icon"></div>' + marker.name + '</p>' +   
-      dataHTML + 
-    '</div>' + 
-    '<div class="card-action activator">' + 
-      '<p><a href="' + marker.website + '" class="btn">Website</a>' + 
-      twitterHTML + 
-      '<i class="medium mdi-navigation-expand-less right" aria-label="reveal twitter stream" ></i></p>' +
-    '</div>' + 
-    '<div class="card-reveal">' + 
-      '<span class="card-title">' + marker.name + '\'s Twitter feed<i class="medium mdi-navigation-close right" aria-label="close twitter stream"></i></span>' + 
-      '<p>Here are tweets from ' + marker.name + ' account!</p>' + 
-    '</div>' + 
-  '</div>' + 
-'</li>';
+      '<li id="' + marker._id + '">' +      
+        '<div class="card">' + 
+          '<div class="card-content">' + 
+            '<p class="card-title"><span><img src="'+ mapApp.icons[markerType] + '" class="small-icon"></span>' + marker.name + '</p>' +
+            '<p>'+ address + '</p>' +
+            '<p>'+ telephone + '</p>' + 
+            '<ul class="card-text">'+  
+            dataHTML + 
+            '</ul>' +
+          '</div>' +
+          '<div class="card-reveal">' + 
+            '<span class="card-title">' + marker.name + '\'s Twitter feed<i class="medium mdi-navigation-close right" aria-label="close twitter stream"></i></span>' + 
+            '<p>Here are tweets from ' + marker.name + ' account!</p>' + 
+          '</div>' + 
+        '</div>' + 
+      '</li>';
 
       $("#results").append(markerHTML);
     })
@@ -154,7 +152,7 @@ mapApp.init = function(){
     "elementType": "all",
     "stylers": [
     {
-      "color": "#f2f2f2"
+      "color": "#f6f6f6"
     }
     ]
   },
@@ -211,7 +209,7 @@ mapApp.init = function(){
     "elementType": "all",
     "stylers": [
     {
-      "color": "#13B9DF"
+      "color": "#00bc66"
     },
     {
       "visibility": "on"
@@ -236,8 +234,8 @@ mapApp.init = function(){
 
   // Icons for markers
   mapApp.icons = {
-    workspaces: './images/shelter.png',
-    startups:   './images/unicorn-pink.png'
+    workspaces: 'http://i.imgur.com/tKSZiPA.png',
+    startups:   'http://i.imgur.com/VNfevVP.png'
   }
 
   mapApp.setupAutocompleteFields()
