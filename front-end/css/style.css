@@ -10330,4 +10330,26 @@ input.search-box {
   font-size: 1.8em;
   text-align: center; }
 
+#register-tagline {
+  font-size: 2em;
+  font-weight: 900;
+  color: #009EFF;
+  margin: 1em auto;
+  max-width: 58%; }
+
+.infowindowtitle {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center; }
+
+.infowindowlink {
+  text-align: center;
+  font-weight: 900; }
+
+.infowindowlink.workspaces {
+  color: #00bc66 !important; }
+
+.infowindowlink.startups {
+  color: #009EFF !important; }
+
 /*# sourceMappingURL=style.css.map */
