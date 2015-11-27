@@ -10230,8 +10230,9 @@ nav ul a {
 nav.main-header a#brand-logo {
   height: 30px; }
   nav.main-header a#brand-logo img {
-    max-height: 100%;
-    max-width: 100%; }
+    max-height: 150%;
+    max-width: 100%;
+    margin-top: 5px; }
 
 footer a#brand-logo {
   height: 64px; }
@@ -10283,14 +10284,17 @@ body {
       body main section#intro .intro-wrapper p#intro-enter {
         color: #009EFF;
         font-weight: 900; }
+    body main section#intro section#about {
+      width: 100%;
+      height: 100vh; }
+      body main section#intro section#about p {
+        font-size: 2em; }
     body main section#intro #intro-tagline {
       font-size: 39px;
       font-weight: 900;
       color: #009EFF; }
     body main section#intro p {
       font-size: 2em; }
-  body main section#about p {
-    font-size: 2em; }
   body main section#map {
     width: 100%;
     height: 100%;
