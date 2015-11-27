@@ -18,10 +18,12 @@ mapApp.captureLatLng = function(){
   for (i in mapApp.place) {
     $form.find("#" + i + "-" + type).val(mapApp.place[i]);
     if (i === "geometry") {
-      $form.find("#lat-" + type).val(mapApp.place[i].location.lat());
-      $form.find("#lng-" + type).val(mapApp.place[i].location.lng());
+      $form.find("#latitude-" + type).val(mapApp.place[i].location.lat());
+      $form.find("#longitude-" + type).val(mapApp.place[i].location.lng());
     }
   }
+  // $form.find("#headquarters-startup").val(mapApp.place[formatted_address]);
+  // $form.find("#address-workspace").val(mapApp.place[formatted_address]);
 }
 
 mapApp.addMarkers = function(markerType){
@@ -34,10 +36,6 @@ mapApp.addMarkers = function(markerType){
       console.log(marker)
       mapApp.addMarkerWithTimeout(marker, markerType , index * 200);
       
-      // var phoneHTML = '';
-      // if(marker.telephone){
-      //   telephoneHTML = '';
-      // }
       var twitterHTML = '';
       if(marker.twitter) {
         twitterHTML = '<a href="' + marker.twitter + '" class="btn">Twitter</a>';
@@ -261,7 +259,7 @@ mapApp.setupAutocompleteFields = function(){
     google.maps.event.addListener(autocomplete, 'place_changed', function(){
 
       mapApp.place = autocomplete.getPlace();
-    
+      console.log(mapApp.place);
       var icon = mapApp.icons[field.split("-")[0]+"s"];
 
       if(icon === 'mains'){

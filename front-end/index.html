@@ -13,9 +13,8 @@
   <!-- CSS framework's JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
   <!-- Custom JavaScript for the SPA -->
+  <script type="text/javascript" src="./js/map.js"></script>
   <script type="text/javascript" src="./js/main.js"></script>
-  <!--<script type="text/javascript" src="./js/maps-and-places.js"></script>-->
-  <script type="text/javascript" src="./js/new-map.js"></script>
   
   <!-- Google Font -->
   <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,900' rel='stylesheet' type='text/css'>
@@ -146,21 +145,22 @@
         <br></br>
         <br></br>
 
-        <label for="headquarters-startup"></label>
-        <input type="text" class="validate" name="headquarters" id="headquarters-startup" placeholder="Headquarters" >
 
         <label for="name-startup"></label>
         <input type="text" class="validate" name="name" id="name-startup" placeholder="Name" >
-
-        <label for="email-startup"></label>
-        <input type="text" class="validate" name="email" id="email-startup" placeholder="Email" >
-
-        <label for="phone-startup"></label>
-        <input type="text" class="validate" name="phone" id="formatted_phone_number-startup" placeholder="Telephone number" >
+        
+        <label for="headquarters-startup"></label>
+        <input type="text" class="validate" name="headquarters" id="formatted_address-startup" placeholder="Headquarters" >
 
         <label for="website-startup"></label>
         <input type="text" class="validate" name="website" id="website-startup" placeholder="Website" >
 
+        <label for="phone-startup"></label>
+        <input type="text" class="validate" name="phone" id="formatted_phone_number-startup" placeholder="Telephone number" >
+
+        <label for="email-startup"></label>
+        <input type="text" class="validate" name="email" id="email-startup" placeholder="Email" >
+        
         <label for="twitter-startup"></label>
         <input type="text" class="validate" name="twitter" id="twitter-startup" placeholder="Twitter url (https://www.twitter.com/...)" >
 
@@ -207,12 +207,12 @@
 
         <label for="website-workspace"></label>
         <input type="text" class="validate" name="website" id="website-workspace" placeholder="Website" >
-
-        <label for="email-workspace"></label>
-        <input type="email" class="validate" name="email" id="name-workspace" placeholder="Email" >
         
         <label for="telephone-workspace"></label>
         <input type="text" class="validate" name="telephone" id="formatted_phone_number-workspace" placeholder="Telephone" >
+
+        <label for="email-workspace"></label>
+        <input type="email" class="validate" name="email" id="name-workspace" placeholder="Email" >
 
         <label for="contactName-workspace"></label>
         <input type="text" class="validate" name="contactName" id="contactName-workspace" placeholder="Contact Name" >
@@ -256,9 +256,9 @@
         <label for="postcode-workspace"></label>
         <input type="hidden" class="validate" name="postcode" id="postcode-workspace" placeholder="" >
 
-        <input type="hidden" class="validate" name="latitude" id="lat-workspace" placeholder="" >
+        <input type="hidden" class="validate" name="latitude" id="latitude-workspace" placeholder="" >
 
-        <input type="hidden" class="validate" name="longitude" id="lng-workspace" placeholder="" >
+        <input type="hidden" class="validate" name="longitude" id="longitude-workspace" placeholder="" >
 
         <button type="submit" class="submit-form-button btn waves-effect waves-light">New Workspace</button>
       </form>
