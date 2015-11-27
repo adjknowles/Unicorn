@@ -10284,11 +10284,6 @@ body {
       body main section#intro .intro-wrapper p#intro-enter {
         color: #009EFF;
         font-weight: 900; }
-    body main section#intro section#about {
-      width: 100%;
-      height: 100vh; }
-      body main section#intro section#about p {
-        font-size: 2em; }
     body main section#intro #intro-tagline {
       font-size: 39px;
       font-weight: 900;
@@ -10306,6 +10301,14 @@ body {
       min-height: 500px;
       min-width: 500px;
       position: relative; }
+  body main section#about {
+    width: 100%;
+    height: 100vh; }
+    body main section#about .about-wrapper {
+      width: 58%;
+      margin: 0 auto; }
+      body main section#about .about-wrapper .about-text {
+        font-size: 2em; }
 
 footer ul {
   list-style-type: none;
