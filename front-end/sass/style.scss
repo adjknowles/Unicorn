@@ -159,13 +159,15 @@ body {
     }
   }
 
-  .add-place-to-form {
+  .add-place-to-form,
+  .submit-form-button {
     width: 100% !important;
   }
 
   input#main-search-box {
-    margin: 20px 0;
+    margin:        20px 0;
     border-bottom: 2px solid $primary-color;
+    text-align:    center;
   }
 
   main {
@@ -243,5 +245,6 @@ footer {
 }
 
 input.search-box {
-  font-size: 1.8em;
+  font-size:  1.8em;
+  text-align: center;
 }
