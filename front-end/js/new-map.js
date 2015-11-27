@@ -231,10 +231,11 @@ mapApp.init = function(){
   // Icons for markers
   mapApp.icons = {
     workspaces: 'http://i.imgur.com/1VZp3yo.png',
-    startups:   'http://i.imgur.com/IAWepkj.png'
+    startups:   'http://i.imgur.com/IAWepkj.png',
+    mains:      'http://i.imgur.com/beye5l3.png'
   }
 
-  mapApp.setupAutocompleteFields()
+  mapApp.setupAutocompleteFields();
 
   google.maps.event.addDomListener(window, 'resize', function(){
     mapApp.map.setCenter(mapApp.center);
@@ -252,7 +253,7 @@ mapApp.init = function(){
 }
 
 mapApp.setupAutocompleteFields = function(){
-  var fields = ["startup-search-box", "workspace-search-box"];
+  var fields = ["startup-search-box", "workspace-search-box", "main-search-box"];
 
   $.each(fields, function(index, field) {
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById(field));
@@ -263,6 +264,11 @@ mapApp.setupAutocompleteFields = function(){
     
       var icon = mapApp.icons[field.split("-")[0]+"s"];
 
+      if(icon === 'mains'){
+        mapApp.map.setCenter(mapApp.place.geometry.location);
+        return;
+      }
+
       var marker = new google.maps.Marker({
         map:       mapApp.map,
         icon:      icon,
@@ -270,9 +276,11 @@ mapApp.setupAutocompleteFields = function(){
         title:     mapApp.place.name,
         position:  mapApp.place.geometry.location
       });
+
       var contentHTML = 
       '<ul>' + 
         '<li class="infowindowtitle">'+ marker.title +'</li>' + 
+        '<li class="infowindowlink"><a href="'+ marker._id +'">For more information, click here</a></li>' + 
       '</ul>';
 
       var infoWindow = new google.maps.InfoWindow({
