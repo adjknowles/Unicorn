@@ -18,10 +18,12 @@ mapApp.captureLatLng = function(){
   for (i in mapApp.place) {
     $form.find("#" + i + "-" + type).val(mapApp.place[i]);
     if (i === "geometry") {
-      $form.find("#lat-" + type).val(mapApp.place[i].location.lat());
-      $form.find("#lng-" + type).val(mapApp.place[i].location.lng());
+      $form.find("#latitude-" + type).val(mapApp.place[i].location.lat());
+      $form.find("#longitude-" + type).val(mapApp.place[i].location.lng());
     }
   }
+  // $form.find("#headquarters-startup").val(mapApp.place[formatted_address]);
+  // $form.find("#address-workspace").val(mapApp.place[formatted_address]);
 }
 
 mapApp.addMarkers = function(markerType){
@@ -32,12 +34,8 @@ mapApp.addMarkers = function(markerType){
     // mapApp.clearMarkers();
     $.each(data[markerType], function(index, marker){
       console.log(marker)
-      mapApp.addMarkerWithTimeout(marker, markerType , index * 200);
+      mapApp.addMarkerWithTimeout(marker, markerType, index * 200);
       
-      // var phoneHTML = '';
-      // if(marker.telephone){
-      //   telephoneHTML = '';
-      // }
       var twitterHTML = '';
       if(marker.twitter) {
         twitterHTML = '<a href="' + marker.twitter + '" class="btn">Twitter</a>';
@@ -231,10 +229,11 @@ mapApp.init = function(){
   // Icons for markers
   mapApp.icons = {
     workspaces: 'http://i.imgur.com/1VZp3yo.png',
-    startups:   'http://i.imgur.com/IAWepkj.png'
+    startups:   'http://i.imgur.com/IAWepkj.png',
+    mains:      'http://i.imgur.com/beye5l3.png'
   }
 
-  mapApp.setupAutocompleteFields()
+  mapApp.setupAutocompleteFields();
 
   google.maps.event.addDomListener(window, 'resize', function(){
     mapApp.map.setCenter(mapApp.center);
@@ -252,7 +251,7 @@ mapApp.init = function(){
 }
 
 mapApp.setupAutocompleteFields = function(){
-  var fields = ["startup-search-box", "workspace-search-box"];
+  var fields = ["startup-search-box", "workspace-search-box", "main-search-box"];
 
   $.each(fields, function(index, field) {
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById(field));
@@ -260,8 +259,13 @@ mapApp.setupAutocompleteFields = function(){
     google.maps.event.addListener(autocomplete, 'place_changed', function(){
 
       mapApp.place = autocomplete.getPlace();
-    
+      console.log(mapApp.place);
       var icon = mapApp.icons[field.split("-")[0]+"s"];
+
+      if(icon === 'mains'){
+        mapApp.map.setCenter(mapApp.place.geometry.location);
+        return;
+      }
 
       var marker = new google.maps.Marker({
         map:       mapApp.map,
@@ -270,9 +274,11 @@ mapApp.setupAutocompleteFields = function(){
         title:     mapApp.place.name,
         position:  mapApp.place.geometry.location
       });
+
       var contentHTML = 
       '<ul>' + 
         '<li class="infowindowtitle">'+ marker.title +'</li>' + 
+        '<li class="infowindowlink"><a href="'+ marker._id +'">For more information, click here</a></li>' + 
       '</ul>';
 
       var infoWindow = new google.maps.InfoWindow({
@@ -295,11 +301,11 @@ mapApp.clearMarkers = function() {
   mapApp.markers = [];
 }
 
-mapApp.addInfoWindowToMarker = function(marker, id){
+mapApp.addInfoWindowToMarker = function(marker, markerType, id){
   var contentHTML = 
   '<ul>' + 
     '<li class="infowindowtitle">'+ marker.title +'</li>' +
-    '<li class="infowindowlink"><a href="#' + id + '">For further information, please click here</a></li>'+
+    '<li class="infowindowlink '+ markerType +'"><a href="#' + id + '">CLICK HERE FOR MORE INFORMATION</a></li>'+
   '</ul>';
 
   var infoWindow = new google.maps.InfoWindow({
@@ -321,6 +327,6 @@ mapApp.addMarkerWithTimeout = function(marker, markerType, timeout) {
       title:     marker.name,
       position:  position
     });
-    mapApp.markers.push(mapApp.addInfoWindowToMarker(gmMarker, marker._id), timeout);
+    mapApp.markers.push(mapApp.addInfoWindowToMarker(gmMarker, markerType, marker._id), timeout);
   });
 }

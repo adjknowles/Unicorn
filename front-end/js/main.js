@@ -26,6 +26,7 @@ function mapPage(){
   $("section").hide();
   return $("#map").show();
 }
+
 function showPage(){
   event.preventDefault();
   var linkClass = $(this).attr("class").split("-")[0];
@@ -120,6 +121,9 @@ function checkLoginState(){
 
 function loggedInState(){
   $("section, .logged-out").hide();
+  // mapApp.init();
+  mapApp.addMarkers('startups');
+  mapApp.addMarkers('workspaces');
   $("#map, .logged-in").show();
   
   // $("#results, .logged-in").show();
