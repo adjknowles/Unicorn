@@ -56,7 +56,15 @@ If a user cannot find a workspace or start up they can add one.
 
 ![](./images/add-startup06.png)                      
 
-When the user is finished they can logout
+##The Challenges
+
+![](./images/challenges.png)
+
+##The Wins
+![](./images/wins.png)
+
+
+ 
 
 
 
