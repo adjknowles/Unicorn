@@ -4,8 +4,8 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-          './css/materialize.css' : './materialize-src/sass/materialize.scss',
-          './css/style.css' : './sass/style.scss'
+          './public/css/materialize.css' : './public/materialize-src/sass/materialize.scss',
+          './public/css/style.css' : './public/sass/style.scss'
         }
       }
     },
@@ -18,5 +18,5 @@ module.exports = function(grunt) {
   });
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('default',['watch']);
+  grunt.registerTask('default',['sass', 'watch']);
 }
