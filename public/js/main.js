@@ -37,6 +37,7 @@ function submitForm(){
   var method = $(this).attr("method");
   var url    = "/api" + $(this).attr("action");
   var data   = $(this).serialize();
+  console.log(data, "<----------------------------")
   return ajaxRequest(method, url, data, authenticationSuccessful);
 }
 
@@ -49,7 +50,7 @@ function ajaxRequest(method, url, data, callback) {
   }).done(function(data){
     if (callback) return callback(data);
   }).fail(function(data) {
-    displayErrors(data.responseJSON.message);
+    return displayErrors(data);
   });
 }
 

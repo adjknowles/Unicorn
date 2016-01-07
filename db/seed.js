@@ -28,7 +28,7 @@ var user1 = new User({
     firstName: "Sareh",
     lastName:  "Heidari",
     email:     "s@h.com",
-    password:  "password"
+    password:  User.encrypt("password")
   }
 });
 
@@ -40,7 +40,7 @@ var user2 = new User({
     firstName: "Alastair",
     lastName:  "Knowles",
     email:     "a@k.com",
-    password:  "password"
+    password:  User.encrypt("password")
   }
 });
 
@@ -52,7 +52,7 @@ var user3 = new User({
     firstName: "Sedky",
     lastName:  "Said",
     email:     "s@s.com",
-    password:  "password"
+    password:  User.encrypt("password")
   }
 });
 

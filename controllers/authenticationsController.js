@@ -26,11 +26,16 @@ function register(req, res, next) {
 
 
 function login(req, res, next) {
+  console.log(req.body)
+
   User.findOne({
     "local.email": req.body.email
   }, function(err, user) {
     if (err) return res.status(500).json(err);
     if (!user) return res.status(403).json({ message: 'No user found.' });
+
+    console.log(!user.validPassword(req.body.password), "<--------------");
+
     if (!user.validPassword(req.body.password)) return res.status(403).json({ message: 'Authentication failed.' });
 
     var token = jwt.sign(user, secret, { expiresIn: 60*60*24 });
