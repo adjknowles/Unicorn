@@ -5,10 +5,6 @@ $(document).ready(function(){
   $(".login-link, .register-link, .about-link, .addstartup-link, .addworkspace-link").on("click", showPage)
   $(".map-link").on("click", mapPage);
   $(".logout-link").on("click", logout);
-  // $("#nav-login").on("click", login);
-  // $("#nav-register").on("click", register);
-  // $("#addstartup").on("click", showAddStartup);
-  // $("#addworkspace").on("click", showAddWorkspace);
   hideErrors();
   checkLoginState();
 });
@@ -39,31 +35,6 @@ function logout(){
   removeToken();
   return loggedOutState();
 }
-
-// function login(){
-//   $("section").hide();
-//   $("#google-map-container").show();
-//   $("#login").show();
-// }
-
-// function register(){
-//   $("section").hide();
-//   $("#google-map-container").show();
-//   $("#register").show();
-// }
-
-// function showAddStartup(){
-//   $("section").hide();
-//   $("#google-map-container").show();
-//   $("#new-startup").show();
-// }
-
-// function showAddWorkspace(){
-//   $("section").hide();
-//   $("#google-map-container").show();
-//   $("#new-workspace").show();
-//   console.log("showAddWorkspace -> main.js")
-// }
 
 function submitForm(){
   event.preventDefault();
