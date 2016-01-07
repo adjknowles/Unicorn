@@ -28,12 +28,7 @@ mapApp.captureLatLng = function(){
 
 mapApp.addMarkers = function(markerType){
   ajaxRequest("get", "/api/" + markerType, null, function(data){
-    console.log(data);
-    // console.log(data["workspace"]);
-    console.log(markerType);
-    // mapApp.clearMarkers();
     $.each(data[markerType], function(index, marker){
-      console.log(marker)
       mapApp.addMarkerWithTimeout(marker, markerType, index * 200);
       
       var twitterHTML = '';

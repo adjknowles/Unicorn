@@ -38,9 +38,11 @@ app.use(express.static(__dirname + "/public"));
 app.use('/api', expressJWT({ secret: secret })
   .unless({
     path: [
-      { url: '/api/login', methods: ['POST'] },
-      { url: '/api/register', methods: ['POST'] },
-      { url: '/', methods: ['GET'] }
+      { url: '/api/login',      methods: ['POST'] },
+      { url: '/api/register',   methods: ['POST'] },
+      { url: '/api/workspaces', methods: ['GET'] },
+      { url: '/api/startups',   methods: ['GET'] },
+      { url: '/',               methods: ['GET'] }
     ]
   }));
 

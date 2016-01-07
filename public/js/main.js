@@ -1,5 +1,4 @@
-$(document).ready(function(){
-
+$(function(){
   $("#intro").on("click", closeIntro);
   $("form").on("submit", submitForm);
   $(".login-link, .register-link, .about-link, .addstartup-link, .addworkspace-link").on("click", showPage)
@@ -10,10 +9,7 @@ $(document).ready(function(){
 });
 
 function closeIntro(){
-  event.preventDefault();
-
-  // Enter js to slide or fade the page out, then in the callback, have the return mapPage();
-  
+  event.preventDefault(); 
   return mapPage();
 };
 
@@ -38,11 +34,9 @@ function logout(){
 
 function submitForm(){
   event.preventDefault();
-
   var method = $(this).attr("method");
   var url    = "/api" + $(this).attr("action");
   var data   = $(this).serialize();
-
   return ajaxRequest(method, url, data, authenticationSuccessful);
 }
 
@@ -61,7 +55,6 @@ function ajaxRequest(method, url, data, callback) {
 
 function setRequestHeader(xhr, settings) {
   var token = getToken();
-  console.log(token)
   if (token) return xhr.setRequestHeader('Authorization','Bearer ' + token);
 }
 
@@ -92,15 +85,9 @@ function checkLoginState(){
 
 function loggedInState(){
   $("section, .logged-out").hide();
-  // mapApp.init();
   mapApp.addMarkers('startups');
   mapApp.addMarkers('workspaces');
   $("#map, .logged-in").show();
-  
-  // $("#results, .logged-in").show();
-  // Commented out, so that logged in state isn't checked
-  // since we don't have the controllers for the startups and workspaces
-  // return [getStartups(), getWorkspaces()];
 }
 
 function loggedOutState(){
@@ -127,16 +114,10 @@ function displayResults(data){
 
 function displayStartups(data){
   return $('results').prepend('<p>Startups here!</p>');
-  // return _.each(data.startups, function(startup){
-  //   $('results').prepend(startup(startup));
-  // });
 }
 
 function displayWorkspaces(data){
   return $('results').prepend('<p>Workspaces here!</p>');
-  // return _.each(data.workspaces, function(workspace){
-  //   $('results').prepend(workspace(workspace));
-  // });
 }
 
 function hideResults(){
