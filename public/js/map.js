@@ -27,7 +27,7 @@ mapApp.captureLatLng = function(){
 }
 
 mapApp.addMarkers = function(markerType){
-  ajaxRequest("get", "http://localhost:3000/api/" + markerType, null, function(data){
+  ajaxRequest("get", "/api/" + markerType, null, function(data){
     console.log(data);
     // console.log(data["workspace"]);
     console.log(markerType);
@@ -91,7 +91,7 @@ mapApp.postPlace = function(){
 
   var data   = $(this).serialize();
   var method = $(this).attr("method");
-  var url    = 'https://localhost:3000/api' + $(this).attr("action");
+  var url    = '/api' + $(this).attr("action");
 
   ajaxRequest(method, url, data, function(){
     console.log("Added place init")

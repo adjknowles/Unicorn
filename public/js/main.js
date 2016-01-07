@@ -69,7 +69,7 @@ function submitForm(){
   event.preventDefault();
 
   var method = $(this).attr("method");
-  var url    = "http://localhost:3000/api" + $(this).attr("action");
+  var url    = "/api" + $(this).attr("action");
   var data   = $(this).serialize();
 
   return ajaxRequest(method, url, data, authenticationSuccessful);
@@ -140,11 +140,11 @@ function loggedOutState(){
 }
 
 function getStartups(){
-  return ajaxRequest("get", "http://localhost:3000/api/startups", null, displayResults);
+  return ajaxRequest("get", "/api/startups", null, displayResults);
 }
 
 function getWorkspaces(){
-  return ajaxRequest("get", "http://localhost:3000/api/workspaces", null, displayResults);
+  return ajaxRequest("get", "/api/workspaces", null, displayResults);
 }
 
 function displayResults(data){
