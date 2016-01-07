@@ -3,7 +3,7 @@ var User      = require('../models/user');
 var Startup   = require('../models/startup');
 var Workspace = require('../models/workspace');
 
-var config         = require('../config/config');
+var config    = require('../config/config');
 
 mongoose.connect(config.database);
 
